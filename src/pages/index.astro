@@ -110,6 +110,32 @@ import Layout from '../layouts/Layout.astro';
 				</div>
 			</div>
 		</section>
+
+		<section class="pi" aria-labelledby="pi-heading">
+			<div class="section-inner pi-inner">
+				<figure class="pi-portrait">
+					<img
+						src="/images/sunny-gupta.png"
+						alt="Sunny Gupta, Assistant Professor at the University of Central Florida"
+						width="2028"
+						height="2028"
+						loading="lazy"
+					/>
+				</figure>
+
+				<div class="pi-profile">
+					<p class="section-label">Meet the PI</p>
+					<h2 id="pi-heading">Sunny Gupta</h2>
+					<p class="pi-title">Assistant Professor</p>
+					<div class="pi-affiliations">
+						<p>NanoScience Technology Center</p>
+						<p>Department of Materials Science and Engineering</p>
+						<p>University of Central Florida</p>
+					</div>
+					<a class="pi-link" href="#">Learn more <span aria-hidden="true">→</span></a>
+				</div>
+			</div>
+		</section>
 	</main>
 </Layout>
 
@@ -352,6 +378,85 @@ import Layout from '../layouts/Layout.astro';
 		transform: translateX(3px);
 	}
 
+	.pi {
+		padding-block: clamp(88px, 10vw, 152px);
+		border-top: 1px solid #dedfe2;
+	}
+
+	.pi-inner {
+		display: grid;
+		grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+		gap: clamp(56px, 8vw, 128px);
+		align-items: center;
+	}
+
+	.pi-portrait {
+		margin: 0;
+	}
+
+	.pi-portrait img {
+		display: block;
+		width: 100%;
+		height: auto;
+		aspect-ratio: 1 / 1;
+		object-fit: cover;
+		object-position: 56% center;
+	}
+
+	.pi-profile {
+		max-width: 650px;
+	}
+
+	.pi-profile h2 {
+		margin: 18px 0 0;
+		font-family: Georgia, 'Times New Roman', serif;
+		font-size: clamp(2.75rem, 4.6vw, 4.75rem);
+		font-weight: 400;
+		line-height: 1.03;
+		letter-spacing: -0.045em;
+	}
+
+	.pi-title {
+		margin: 18px 0 0;
+		color: #343840;
+		font-size: clamp(1.05rem, 1.3vw, 1.2rem);
+		font-weight: 600;
+	}
+
+	.pi-affiliations {
+		margin-top: 30px;
+		padding-top: 25px;
+		border-top: 1px solid #dedfe2;
+		color: #555a63;
+		font-size: 0.98rem;
+		line-height: 1.65;
+	}
+
+	.pi-affiliations p {
+		margin: 0;
+	}
+
+	.pi-link {
+		display: inline-flex;
+		gap: 8px;
+		align-items: center;
+		margin-top: 34px;
+		padding-bottom: 5px;
+		border-bottom: 1px solid #c99700;
+		font-size: 0.87rem;
+		font-weight: 650;
+		text-decoration: none;
+	}
+
+	.pi-link span {
+		transition: transform 160ms ease;
+	}
+
+	.pi-link:hover span,
+	.pi-link:focus-visible span {
+		transform: translateX(3px);
+	}
+
 	@media (max-width: 980px) {
 		.hero {
 			grid-template-columns: 1fr;
@@ -385,6 +490,10 @@ import Layout from '../layouts/Layout.astro';
 
 		.research-image {
 			margin-bottom: 24px;
+		}
+
+		.pi-inner {
+			gap: clamp(40px, 6vw, 64px);
 		}
 	}
 
@@ -447,11 +556,30 @@ import Layout from '../layouts/Layout.astro';
 		.research-area h3 {
 			font-size: 1.7rem;
 		}
+
+		.pi {
+			padding-block: 72px 88px;
+		}
+
+		.pi-inner {
+			grid-template-columns: 1fr;
+			gap: 40px;
+		}
+
+		.pi-profile h2 {
+			font-size: clamp(2.6rem, 13vw, 3.5rem);
+		}
+
+		.pi-affiliations {
+			margin-top: 26px;
+			padding-top: 22px;
+		}
 	}
 
 	@media (prefers-reduced-motion: reduce) {
 		.research-image img,
-		.research-area > a span {
+		.research-area > a span,
+		.pi-link span {
 			transition: none;
 		}
 	}
