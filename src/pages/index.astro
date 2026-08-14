@@ -1,6 +1,8 @@
 ---
 import Header from '../components/Header.astro';
 import Layout from '../layouts/Layout.astro';
+
+const currentYear = new Date().getFullYear();
 ---
 
 <Layout>
@@ -29,21 +31,26 @@ import Layout from '../layouts/Layout.astro';
 		</section>
 
 		<section class="about" aria-labelledby="about-heading">
-			<div class="section-inner about-inner">
-				<h2 id="about-heading" class="section-label">About the Group</h2>
-				<div class="about-statement">
+			<div class="section-inner">
+				<div class="about-inner">
+					<div class="about-introduction">
+						<h2 id="about-heading" class="section-label">About the Group</h2>
+						<p class="about-statement">Materials are the foundation of every electronic system.</p>
+					</div>
+					<div class="about-copy">
 					<p>
-						Materials are the foundation of every electronic system. Our interdisciplinary group integrates inverse
-						materials design, synthesis science, and defect and interface engineering to address fundamental materials
-						challenges in next-generation quantum and electronic technologies.
+						Our interdisciplinary group integrates inverse materials design, synthesis science, and defect and interface
+						engineering to address fundamental materials challenges in next-generation quantum and electronic
+						technologies.
 					</p>
 					<p>
 						We develop and apply computational approaches to discover emergent electronic phenomena in low-dimensional
 						materials, design predictive synthesis pathways, identify high-performance defects for spin-photonic qubits,
 						and understand interfacial phenomena critical to advanced microelectronics.
 					</p>
+					</div>
 				</div>
-			</div>
+				</div>
 		</section>
 
 		<section class="research" aria-labelledby="research-heading">
@@ -132,6 +139,7 @@ import Layout from '../layouts/Layout.astro';
 						<p>Department of Materials Science and Engineering</p>
 						<p>University of Central Florida</p>
 					</div>
+					<p class="pi-email"><a href="mailto:sunny.gupta@ucf.edu">sunny.gupta@ucf.edu</a></p>
 					<a class="pi-link" href="#">Learn more <span aria-hidden="true">→</span></a>
 				</div>
 			</div>
@@ -257,7 +265,83 @@ import Layout from '../layouts/Layout.astro';
 			</div>
 			<script is:inline type="text/javascript" src="https://embed.altmetric.com/assets/embed.js"></script>
 		</section>
+
+		<section class="join" aria-labelledby="join-heading">
+			<div class="section-inner join-inner">
+				<p class="join-label">Join Us</p>
+				<h2 id="join-heading">Join the Gupta Research Group</h2>
+				<p class="join-introduction">
+					We welcome students and researchers interested in computational materials science, low-dimensional
+					quantum materials, synthesis science, and defect and interface engineering.
+				</p>
+				<a class="join-link" href="#">Explore Opportunities <span aria-hidden="true">→</span></a>
+			</div>
+		</section>
 	</main>
+
+	<footer class="site-footer">
+		<div class="section-inner footer-inner">
+			<div class="footer-identity">
+				<p class="footer-name">Gupta Research Group</p>
+				<p>
+					<a class="footer-affiliation" href="https://www.ucf.edu/" target="_blank" rel="noopener noreferrer">
+						University of Central Florida
+					</a>
+				</p>
+				<p>
+					<a
+						class="footer-affiliation"
+						href="https://nanoscience.ucf.edu/"
+						target="_blank"
+						rel="noopener noreferrer"
+					>
+						NanoScience Technology Center
+					</a>
+				</p>
+				<p>
+					<a
+						class="footer-affiliation"
+						href="https://mse.ucf.edu/"
+						target="_blank"
+						rel="noopener noreferrer"
+					>
+						Department of Materials Science and Engineering
+					</a>
+				</p>
+				<p class="footer-email">
+					<a class="footer-affiliation" href="mailto:sunny.gupta@ucf.edu">sunny.gupta@ucf.edu</a>
+				</p>
+			</div>
+
+			<nav class="footer-navigation" aria-label="Footer navigation">
+				<p class="footer-heading">Navigate</p>
+				<a href="#">Research</a>
+				<a href="#">People</a>
+				<a href="#">Publications</a>
+				<a href="#">Join Us</a>
+			</nav>
+
+			<div class="footer-links">
+				<p class="footer-heading">Research profile</p>
+				<a
+					class="footer-scholar-link"
+					href="https://scholar.google.com/citations?user=u0ByY3UAAAAJ&amp;hl=en"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					<svg class="scholar-icon" viewBox="0 0 24 24" aria-hidden="true">
+						<path d="M12 3 1.75 9 12 15l8.25-4.83V17h2V9L12 3Z" />
+						<path d="M5.5 13.2V17c0 2.2 2.9 4 6.5 4s6.5-1.8 6.5-4v-3.8L12 17l-6.5-3.8Z" />
+					</svg>
+					<span>Google Scholar</span>
+					<span class="external-arrow" aria-hidden="true">↗</span>
+				</a>
+			</div>
+		</div>
+		<div class="section-inner footer-bottom">
+			<p>© {currentYear} Gupta Research Group <span aria-hidden="true">·</span> University of Central Florida</p>
+		</div>
+	</footer>
 </Layout>
 
 <script>
@@ -348,10 +432,10 @@ import Layout from '../layouts/Layout.astro';
 		align-items: center;
 		gap: clamp(42px, 5vw, 84px);
 		width: min(100% - 64px, 1440px);
-		min-height: calc(100vh - 80px);
+		min-height: min(720px, calc(100vh - 80px));
 		max-height: 880px;
 		margin-inline: auto;
-		padding-block: clamp(48px, 6vh, 78px);
+		padding-block: clamp(40px, 4.5vh, 58px);
 	}
 
 	.hero-copy {
@@ -455,38 +539,49 @@ import Layout from '../layouts/Layout.astro';
 	}
 
 	.about {
-		padding-block: clamp(76px, 8vw, 128px);
+		padding-block: clamp(56px, 6vw, 88px) clamp(52px, 5.5vw, 80px);
 		border-top: 1px solid #ececef;
+		background: #fbfaf7;
 	}
 
 	.about-inner {
 		display: grid;
-		grid-template-columns: minmax(150px, 1fr) minmax(0, 3fr);
-		gap: clamp(40px, 7vw, 112px);
+		grid-template-columns: minmax(0, 3fr) minmax(0, 5fr);
+		gap: clamp(52px, 7vw, 112px);
 		align-items: start;
 	}
 
 	.about-statement {
-		max-width: 820px;
-		margin: -0.16em 0 0;
+		max-width: 510px;
+		margin: 24px 0 0;
 		font-family: Georgia, 'Times New Roman', serif;
-		font-size: clamp(1.625rem, 2vw, 1.875rem);
+		font-size: clamp(2.25rem, 3vw, 2.625rem);
 		font-weight: 400;
-		line-height: 1.38;
-		letter-spacing: -0.02em;
+		line-height: 1.14;
+		letter-spacing: -0.035em;
+		text-wrap: balance;
+	}
+
+	.about-copy {
+		max-width: 760px;
+		font-family: Georgia, 'Times New Roman', serif;
+		font-size: clamp(1.375rem, 1.75vw, 1.625rem);
+		font-weight: 400;
+		line-height: 1.48;
+		letter-spacing: -0.015em;
 		text-wrap: pretty;
 	}
 
-	.about-statement p {
+	.about-copy p {
 		margin: 0;
 	}
 
-	.about-statement p + p {
-		margin-top: 1em;
+	.about-copy p + p {
+		margin-top: 1.1em;
 	}
 
 	.research {
-		padding-block: clamp(88px, 9vw, 144px) clamp(112px, 11vw, 176px);
+		padding-block: clamp(64px, 6.5vw, 96px) clamp(76px, 7.5vw, 108px);
 		border-top: 1px solid #dedfe2;
 	}
 
@@ -577,7 +672,7 @@ import Layout from '../layouts/Layout.astro';
 	}
 
 	.pi {
-		padding-block: clamp(88px, 10vw, 152px);
+		padding-block: clamp(64px, 7vw, 100px);
 		border-top: 1px solid #dedfe2;
 	}
 
@@ -634,11 +729,31 @@ import Layout from '../layouts/Layout.astro';
 		margin: 0;
 	}
 
+	.pi-email {
+		margin: 14px 0 0;
+		font-size: 0.92rem;
+		line-height: 1.5;
+	}
+
+	.pi-email a {
+		color: #343840;
+		text-decoration-color: #c99700;
+		text-decoration-thickness: 1px;
+		text-underline-offset: 0.22em;
+		transition: color 160ms ease, text-decoration-color 160ms ease;
+	}
+
+	.pi-email a:hover,
+	.pi-email a:focus-visible {
+		color: #896400;
+		text-decoration-color: #896400;
+	}
+
 	.pi-link {
 		display: inline-flex;
 		gap: 8px;
 		align-items: center;
-		margin-top: 34px;
+		margin-top: 26px;
 		padding-bottom: 5px;
 		border-bottom: 1px solid #c99700;
 		font-size: 0.87rem;
@@ -656,7 +771,7 @@ import Layout from '../layouts/Layout.astro';
 	}
 
 	.publications {
-		padding-block: clamp(88px, 9vw, 144px) clamp(104px, 10vw, 160px);
+		padding-block: clamp(64px, 6.5vw, 96px) clamp(72px, 7vw, 104px);
 		border-top: 1px solid #dedfe2;
 	}
 
@@ -883,13 +998,181 @@ import Layout from '../layouts/Layout.astro';
 		color: #896400;
 	}
 
+	.join {
+		padding-block: clamp(68px, 7vw, 104px);
+		background: #111318;
+		color: #f6f3ea;
+	}
+
+	.join-inner {
+		max-width: 1180px;
+	}
+
+	.join-label {
+		margin: 0;
+		color: #e4b526;
+		font-size: 0.72rem;
+		font-weight: 750;
+		letter-spacing: 0.15em;
+		text-transform: uppercase;
+	}
+
+	.join h2 {
+		max-width: 850px;
+		margin: 20px 0 0;
+		font-family: Georgia, 'Times New Roman', serif;
+		font-size: clamp(2.5rem, 4.5vw, 4rem);
+		font-weight: 400;
+		line-height: 1.04;
+		letter-spacing: -0.045em;
+		text-wrap: balance;
+	}
+
+	.join-introduction {
+		max-width: 760px;
+		margin: 30px 0 0;
+		color: #c8c9cc;
+		font-size: clamp(1rem, 1.2vw, 1.12rem);
+		line-height: 1.75;
+	}
+
+	.join-link {
+		display: inline-flex;
+		gap: 10px;
+		align-items: center;
+		margin-top: 38px;
+		padding-bottom: 7px;
+		border-bottom: 1px solid #d5a817;
+		color: #e4b526;
+		font-size: 0.9rem;
+		font-weight: 650;
+		text-decoration: none;
+	}
+
+	.join-link span {
+		transition: transform 160ms ease;
+	}
+
+	.join-link:hover span,
+	.join-link:focus-visible span {
+		transform: translateX(4px);
+	}
+
+	.site-footer {
+		border-top: 1px solid #dedfe2;
+		background: #fafafa;
+		color: #17191e;
+	}
+
+	.footer-inner {
+		display: grid;
+		grid-template-columns: minmax(0, 2fr) minmax(140px, 1fr) minmax(180px, 1fr);
+		gap: clamp(40px, 7vw, 104px);
+		padding-block: clamp(40px, 4.5vw, 58px);
+	}
+
+	.footer-identity p {
+		margin: 0;
+		color: #62666e;
+		font-size: 0.84rem;
+		line-height: 1.75;
+	}
+
+	.footer-identity .footer-name {
+		margin-bottom: 12px;
+		color: #17191e;
+		font-family: Georgia, 'Times New Roman', serif;
+		font-size: 1.25rem;
+		line-height: 1.3;
+	}
+
+	.footer-identity .footer-email {
+		margin-top: 10px;
+	}
+
+	.footer-affiliation {
+		color: #343840;
+		text-decoration-color: #c99700;
+		text-decoration-thickness: 1px;
+		text-underline-offset: 0.2em;
+		transition: color 160ms ease, text-decoration-color 160ms ease;
+	}
+
+	.footer-heading {
+		margin: 0 0 15px;
+		color: #896400;
+		font-size: 0.68rem;
+		font-weight: 750;
+		letter-spacing: 0.13em;
+		text-transform: uppercase;
+	}
+
+	.footer-navigation {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+	}
+
+	.footer-navigation a {
+		padding-block: 5px;
+		color: #444850;
+		font-size: 0.84rem;
+		text-decoration: none;
+	}
+
+	.footer-navigation a:hover,
+	.footer-navigation a:focus-visible,
+	.footer-affiliation:hover,
+	.footer-affiliation:focus-visible {
+		color: #896400;
+		text-decoration-color: #896400;
+	}
+
+	.footer-scholar-link {
+		display: inline-flex;
+		gap: 8px;
+		align-items: center;
+		padding-block: 5px;
+		color: #343840;
+		font-size: 0.84rem;
+		font-weight: 620;
+		text-decoration: none;
+	}
+
+	.footer-scholar-link:hover,
+	.footer-scholar-link:focus-visible {
+		color: #896400;
+	}
+
+	.footer-scholar-link .scholar-icon {
+		width: 18px;
+		height: 18px;
+	}
+
+	.footer-bottom {
+		padding-block: 18px 22px;
+		border-top: 1px solid #dedfe2;
+	}
+
+	.footer-bottom p {
+		margin: 0;
+		color: #777b82;
+		font-size: 0.74rem;
+		line-height: 1.5;
+	}
+
+	.footer-bottom span {
+		margin-inline: 0.35em;
+		color: #c99700;
+	}
+
 	@media (max-width: 980px) {
 		.hero {
 			grid-template-columns: 1fr;
 			gap: 48px;
 			min-height: auto;
 			max-height: none;
-			padding-block: 54px;
+			padding-block: 46px;
 		}
 
 		.hero-copy {
@@ -902,12 +1185,15 @@ import Layout from '../layouts/Layout.astro';
 
 		.about-inner {
 			grid-template-columns: 1fr;
-			gap: 28px;
+			gap: 34px;
 		}
 
 		.about-statement {
-			max-width: 900px;
-			margin-top: 0;
+			max-width: 680px;
+		}
+
+		.about-copy {
+			max-width: 820px;
 		}
 
 		.research-grid {
@@ -927,7 +1213,7 @@ import Layout from '../layouts/Layout.astro';
 		.hero {
 			width: min(100% - 40px, 1440px);
 			gap: 40px;
-			padding-block: 42px 48px;
+			padding-block: 36px 40px;
 		}
 
 		.eyebrow {
@@ -954,16 +1240,22 @@ import Layout from '../layouts/Layout.astro';
 		}
 
 		.about {
-			padding-block: 62px 68px;
+			padding-block: 48px 50px;
 		}
 
 		.about-statement {
-			font-size: clamp(1.5rem, 6vw, 1.75rem);
-			line-height: 1.4;
+			margin-top: 18px;
+			font-size: clamp(2rem, 9vw, 2.4rem);
+			line-height: 1.16;
+		}
+
+		.about-copy {
+			font-size: clamp(1.25rem, 5.5vw, 1.45rem);
+			line-height: 1.5;
 		}
 
 		.research {
-			padding-block: 78px 108px;
+			padding-block: 54px 64px;
 		}
 
 		.research-header {
@@ -984,7 +1276,7 @@ import Layout from '../layouts/Layout.astro';
 		}
 
 		.pi {
-			padding-block: 72px 88px;
+			padding-block: 52px 60px;
 		}
 
 		.pi-inner {
@@ -1002,7 +1294,7 @@ import Layout from '../layouts/Layout.astro';
 		}
 
 		.publications {
-			padding-block: 72px 96px;
+			padding-block: 52px 64px;
 		}
 
 		.publications-header {
@@ -1039,6 +1331,36 @@ import Layout from '../layouts/Layout.astro';
 			width: auto;
 			margin-left: 0;
 		}
+
+		.join {
+			padding-block: 56px 60px;
+		}
+
+		.join h2 {
+			font-size: clamp(2.45rem, 12vw, 3.5rem);
+		}
+
+		.join-introduction {
+			margin-top: 24px;
+			line-height: 1.68;
+		}
+
+		.join-link {
+			margin-top: 30px;
+			padding-block: 8px;
+		}
+
+		.footer-inner {
+			grid-template-columns: 1fr;
+			gap: 34px;
+			padding-block: 38px;
+		}
+
+		.footer-navigation a,
+		.footer-scholar-link {
+			min-height: 36px;
+			padding-block: 8px;
+		}
 	}
 
 	@media (prefers-reduced-motion: reduce) {
@@ -1048,7 +1370,8 @@ import Layout from '../layouts/Layout.astro';
 		.scholar-link,
 		.publication h3 a,
 		.publication,
-		.carousel-arrow {
+		.carousel-arrow,
+		.join-link span {
 			transition: none;
 		}
 	}
