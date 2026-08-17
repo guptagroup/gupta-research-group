@@ -1,14 +1,24 @@
 ---
-const navigation = ['Research', 'People', 'Publications', 'News', 'Join Us'];
+const navigation = [
+	{ label: 'Research', href: '/research' },
+	{ label: 'People', href: '#' },
+	{ label: 'Publications', href: '#' },
+	{ label: 'News', href: '#' },
+	{ label: 'Join Us', href: '#' },
+];
+
+const currentPath = Astro.url.pathname;
 ---
 
 <header class="site-header">
 	<div class="header-inner">
-		<a class="wordmark" href="#" aria-label="Gupta Research Group home">Gupta Research Group</a>
+		<a class="wordmark" href="/" aria-label="Gupta Research Group home">Gupta Research Group</a>
 
 		<nav class="desktop-nav" aria-label="Primary navigation">
 			<ul>
-				{navigation.map((item) => <li><a href="#">{item}</a></li>)}
+				{navigation.map((item) => (
+					<li><a href={item.href} aria-current={currentPath === item.href ? 'page' : undefined}>{item.label}</a></li>
+				))}
 			</ul>
 			<a class="ucf-link" href="#">UCF</a>
 		</nav>
@@ -16,7 +26,9 @@ const navigation = ['Research', 'People', 'Publications', 'News', 'Join Us'];
 		<details class="mobile-nav">
 			<summary aria-label="Toggle navigation"><span>Menu</span></summary>
 			<nav aria-label="Mobile navigation">
-				{navigation.map((item) => <a href="#">{item}</a>)}
+				{navigation.map((item) => (
+					<a href={item.href} aria-current={currentPath === item.href ? 'page' : undefined}>{item.label}</a>
+				))}
 				<a class="mobile-ucf" href="#">UCF</a>
 			</nav>
 		</details>
@@ -68,7 +80,8 @@ const navigation = ['Research', 'People', 'Publications', 'News', 'Join Us'];
 	}
 
 	.desktop-nav a:hover,
-	.desktop-nav a:focus-visible {
+	.desktop-nav a:focus-visible,
+	.desktop-nav a[aria-current='page'] {
 		color: #8a6300;
 	}
 

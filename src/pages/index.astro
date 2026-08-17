@@ -1,8 +1,7 @@
 ---
 import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
 import Layout from '../layouts/Layout.astro';
-
-const currentYear = new Date().getFullYear();
 ---
 
 <Layout>
@@ -16,7 +15,7 @@ const currentYear = new Date().getFullYear();
 					We combine quantum-mechanical simulations and machine learning to design low-dimensional materials for
 					future technologies.
 				</p>
-				<a class="cta" href="#">Explore Our Research <span aria-hidden="true">→</span></a>
+				<a class="cta" href="/research">Explore Our Research <span aria-hidden="true">→</span></a>
 			</div>
 
 			<figure class="hero-visual">
@@ -76,7 +75,7 @@ const currentYear = new Date().getFullYear();
 							Developing design principles and descriptors for discovering materials with targeted electronic
 							functionalities.
 						</p>
-						<a href="#">Explore research <span aria-hidden="true">→</span></a>
+						<a href="/research#inverse-design">Explore research <span aria-hidden="true">→</span></a>
 					</article>
 
 					<article class="research-area">
@@ -94,7 +93,7 @@ const currentYear = new Date().getFullYear();
 							Understanding the mechanisms and pathways that govern materials formation to develop predictive
 							approaches for materials synthesis.
 						</p>
-						<a href="#">Explore research <span aria-hidden="true">→</span></a>
+						<a href="/research#synthesis-science">Explore research <span aria-hidden="true">→</span></a>
 					</article>
 
 					<article class="research-area">
@@ -112,7 +111,7 @@ const currentYear = new Date().getFullYear();
 							Engineering defects and interfaces to control and create functional properties and devices for quantum and
 							electronic applications.
 						</p>
-						<a href="#">Explore research <span aria-hidden="true">→</span></a>
+						<a href="/research#defects-interfaces">Explore research <span aria-hidden="true">→</span></a>
 					</article>
 				</div>
 			</div>
@@ -279,69 +278,7 @@ const currentYear = new Date().getFullYear();
 		</section>
 	</main>
 
-	<footer class="site-footer">
-		<div class="section-inner footer-inner">
-			<div class="footer-identity">
-				<p class="footer-name">Gupta Research Group</p>
-				<p>
-					<a class="footer-affiliation" href="https://www.ucf.edu/" target="_blank" rel="noopener noreferrer">
-						University of Central Florida
-					</a>
-				</p>
-				<p>
-					<a
-						class="footer-affiliation"
-						href="https://nanoscience.ucf.edu/"
-						target="_blank"
-						rel="noopener noreferrer"
-					>
-						NanoScience Technology Center
-					</a>
-				</p>
-				<p>
-					<a
-						class="footer-affiliation"
-						href="https://mse.ucf.edu/"
-						target="_blank"
-						rel="noopener noreferrer"
-					>
-						Department of Materials Science and Engineering
-					</a>
-				</p>
-				<p class="footer-email">
-					<a class="footer-affiliation" href="mailto:sunny.gupta@ucf.edu">sunny.gupta@ucf.edu</a>
-				</p>
-			</div>
-
-			<nav class="footer-navigation" aria-label="Footer navigation">
-				<p class="footer-heading">Navigate</p>
-				<a href="#">Research</a>
-				<a href="#">People</a>
-				<a href="#">Publications</a>
-				<a href="#">Join Us</a>
-			</nav>
-
-			<div class="footer-links">
-				<p class="footer-heading">Research profile</p>
-				<a
-					class="footer-scholar-link"
-					href="https://scholar.google.com/citations?user=u0ByY3UAAAAJ&amp;hl=en"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					<svg class="scholar-icon" viewBox="0 0 24 24" aria-hidden="true">
-						<path d="M12 3 1.75 9 12 15l8.25-4.83V17h2V9L12 3Z" />
-						<path d="M5.5 13.2V17c0 2.2 2.9 4 6.5 4s6.5-1.8 6.5-4v-3.8L12 17l-6.5-3.8Z" />
-					</svg>
-					<span>Google Scholar</span>
-					<span class="external-arrow" aria-hidden="true">↗</span>
-				</a>
-			</div>
-		</div>
-		<div class="section-inner footer-bottom">
-			<p>© {currentYear} Gupta Research Group <span aria-hidden="true">·</span> University of Central Florida</p>
-		</div>
-	</footer>
+	<Footer />
 </Layout>
 
 <script>
@@ -1058,114 +995,6 @@ const currentYear = new Date().getFullYear();
 		transform: translateX(4px);
 	}
 
-	.site-footer {
-		border-top: 1px solid #dedfe2;
-		background: #fafafa;
-		color: #17191e;
-	}
-
-	.footer-inner {
-		display: grid;
-		grid-template-columns: minmax(0, 2fr) minmax(140px, 1fr) minmax(180px, 1fr);
-		gap: clamp(40px, 7vw, 104px);
-		padding-block: clamp(40px, 4.5vw, 58px);
-	}
-
-	.footer-identity p {
-		margin: 0;
-		color: #62666e;
-		font-size: 0.84rem;
-		line-height: 1.75;
-	}
-
-	.footer-identity .footer-name {
-		margin-bottom: 12px;
-		color: #17191e;
-		font-family: Georgia, 'Times New Roman', serif;
-		font-size: 1.25rem;
-		line-height: 1.3;
-	}
-
-	.footer-identity .footer-email {
-		margin-top: 10px;
-	}
-
-	.footer-affiliation {
-		color: #343840;
-		text-decoration-color: #c99700;
-		text-decoration-thickness: 1px;
-		text-underline-offset: 0.2em;
-		transition: color 160ms ease, text-decoration-color 160ms ease;
-	}
-
-	.footer-heading {
-		margin: 0 0 15px;
-		color: #896400;
-		font-size: 0.68rem;
-		font-weight: 750;
-		letter-spacing: 0.13em;
-		text-transform: uppercase;
-	}
-
-	.footer-navigation {
-		display: flex;
-		flex-direction: column;
-		align-items: flex-start;
-	}
-
-	.footer-navigation a {
-		padding-block: 5px;
-		color: #444850;
-		font-size: 0.84rem;
-		text-decoration: none;
-	}
-
-	.footer-navigation a:hover,
-	.footer-navigation a:focus-visible,
-	.footer-affiliation:hover,
-	.footer-affiliation:focus-visible {
-		color: #896400;
-		text-decoration-color: #896400;
-	}
-
-	.footer-scholar-link {
-		display: inline-flex;
-		gap: 8px;
-		align-items: center;
-		padding-block: 5px;
-		color: #343840;
-		font-size: 0.84rem;
-		font-weight: 620;
-		text-decoration: none;
-	}
-
-	.footer-scholar-link:hover,
-	.footer-scholar-link:focus-visible {
-		color: #896400;
-	}
-
-	.footer-scholar-link .scholar-icon {
-		width: 18px;
-		height: 18px;
-	}
-
-	.footer-bottom {
-		padding-block: 18px 22px;
-		border-top: 1px solid #dedfe2;
-	}
-
-	.footer-bottom p {
-		margin: 0;
-		color: #777b82;
-		font-size: 0.74rem;
-		line-height: 1.5;
-	}
-
-	.footer-bottom span {
-		margin-inline: 0.35em;
-		color: #c99700;
-	}
-
 	@media (max-width: 980px) {
 		.hero {
 			grid-template-columns: 1fr;
@@ -1350,17 +1179,6 @@ const currentYear = new Date().getFullYear();
 			padding-block: 8px;
 		}
 
-		.footer-inner {
-			grid-template-columns: 1fr;
-			gap: 34px;
-			padding-block: 38px;
-		}
-
-		.footer-navigation a,
-		.footer-scholar-link {
-			min-height: 36px;
-			padding-block: 8px;
-		}
 	}
 
 	@media (prefers-reduced-motion: reduce) {

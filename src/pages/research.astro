@@ -1,0 +1,171 @@
+---
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+	title="Research Directions | Gupta Research Group"
+	description="Research directions of the Gupta Research Group at the University of Central Florida."
+>
+	<Header />
+	<main>
+		<header class="page-introduction">
+			<div class="page-inner intro-inner">
+				<p class="section-label">Research</p>
+				<h1>Research Directions</h1>
+				<p class="intro-copy">
+					We develop and apply computational approaches to address fundamental materials challenges in
+					low-dimensional quantum and electronic systems, spanning inverse materials design, synthesis science, and
+					defect and interface engineering.
+				</p>
+			</div>
+		</header>
+
+		<div class="research-directions page-inner">
+			<section class="research-feature" id="inverse-design" aria-labelledby="inverse-design-title">
+				<div class="feature-layout">
+				<figure class="feature-image">
+					<img src="/images/main_inverse_design.png" alt="Scientific visualization representing inverse design of low-dimensional quantum materials" width="3308" height="2475" />
+				</figure>
+				<div class="feature-copy">
+					<p class="research-label">01 <span aria-hidden="true">·</span> Inverse Design</p>
+					<h2 id="inverse-design-title">Inverse Design of 2D Quantum Materials</h2>
+					<p>We aim to establish a new paradigm in which topographical deformations are used to engineer emergent electronic and quantum phases in 2D materials, replacing serendipitous materials discovery with geometry-driven design. Using multiscale computational approaches, we investigate how deformation-induced pseudo-electric and pseudo-magnetic fields reshape electronic structure and give rise to correlated electronic states, exotic optical and magnetic properties.</p>
+					<details class="research-details">
+						<summary><span class="details-more">More about this research ↓</span><span class="details-less">Less about this research ↑</span></summary>
+						<p>By connecting a prescribed deformation profile directly to an effective electronic Hamiltonian, we seek to develop general design rules for creating targeted quantum phases through geometry. This approach could provide a versatile route to tune spin, charge, optical, and magnetic behavior without changing the underlying material composition. Ultimately, this framework could enable tunable quantum functionality for sensing, logic, memory, and other emerging electronic technologies.</p>
+					</details>
+				</div>
+				</div>
+				<div class="representative-publications">
+						<h3>Representative Publications</h3>
+						<ol>
+						<li><span class="publication-authors">X Li, S Gupta, and B I Yakobson,</span> <cite><a href="https://journals.aps.org/prb/abstract/10.1103/bxw4-7y5c" target="_blank" rel="noopener noreferrer">Undulation-induced moiré superlattices with one-dimensional polarization domains and flat bands in two-dimensional bilayer semiconductors</a>,</cite> <span class="publication-details">Phys. Rev. B, 2025, 112, 115308 - Editors’ Suggestion</span></li>
+						<li><span class="publication-authors">S Gupta†, M N Mattur, and B I Yakobson†,</span> <cite><a href="https://doi.org/10.1016/j.matt.2025.102378" target="_blank" rel="noopener noreferrer">Mechanical crease in 2D materials – a platform for large spin-splitting and persistent spin-helix</a>,</cite> <span class="publication-details">Matter, 2025, 8, 102378 <small>(† corresponding author)</small> - featured on Rice News</span></li>
+						<li><span class="publication-authors">S Gupta, H Yu, B I. Yakobson,</span> <cite><a href="https://doi.org/10.1038/s41467-022-30818-2" target="_blank" rel="noopener noreferrer">Designing 1D correlated-electron states by non-Euclidean topography of 2D monolayers</a>,</cite> <span class="publication-details">Nature Commun., 2022, 13, 3103 - featured on Rice News, Materials Today, Physics World</span></li>
+						</ol>
+				</div>
+			</section>
+
+			<section class="research-feature feature-reversed" id="synthesis-science" aria-labelledby="synthesis-science-title">
+				<div class="feature-layout">
+				<div class="feature-copy">
+					<p class="research-label">02 <span aria-hidden="true">·</span> Synthesis Science</p>
+					<h2 id="synthesis-science-title">Predictive Synthesis</h2>
+					<p>Synthesis remains a major bottleneck in realizing the potential of 2D materials, in part because current modeling approaches often explain growth <em>post facto</em> rather than predict synthesis conditions. Using ML-based interatomic potentials coupled with thermodynamic, and kinetic models, we develop predictive frameworks for CVD growth that connect precursor chemistry, nucleation, and crystal growth across multiple time and length scales.</p>
+					<details class="research-details">
+						<summary><span class="details-more">More about this research ↓</span><span class="details-less">Less about this research ↑</span></summary>
+						<p>We are also broadly interested in extending these approaches to predict synthesis pathways and processing conditions for bulk functional materials. Ultimately, this work aims to establish a general framework for rational synthesis design, enabling lower growth temperatures, reduced defect densities, improved crystal quality, and more reliable access to targeted materials and phases.</p>
+					</details>
+				</div>
+				<figure class="feature-image synthesis-image">
+					<img src="/images/main_synthesis_science.png" alt="Scientific visualization of molecular deposition and material formation on a surface" width="1536" height="1024" loading="lazy" />
+				</figure>
+				</div>
+				<div class="representative-publications">
+					<h3>Representative Publications</h3>
+					<ol>
+						<li><span class="publication-authors">X Yang*, S Gupta*, Y Chen, D Sari, H-Hau, Z Cai, C Dun, M Qi, J Urban, Y Liu, and G Ceder,</span> <cite><a href="https://doi.org/10.1002/aenm.202400163" target="_blank" rel="noopener noreferrer">Fast Room-Temperature Mg-Ion Conduction in Clay-Like Halide Glassy Electrolytes</a>,</cite> <span class="publication-details">Advanced Energy Materials, 2024, 2400163 <small>(* equal contribution)</small></span></li>
+						<li><span class="publication-authors">S Gupta, X Yang, G Ceder,</span> <cite><a href="https://doi.org/10.1038/s41467-023-42538-2" target="_blank" rel="noopener noreferrer">What dictates soft clay-like Li superionic conductor formation from rigid salts mixture</a>,</cite> <span class="publication-details">Nature Commun., 2023, 14, 6884</span></li>
+						<li><span class="publication-authors">J de Boor*, S Gupta*, H Kolb, T Dasgupta and E Müller,</span> <cite><a href="https://doi.org/10.1039/C5TC01535A" target="_blank" rel="noopener noreferrer">Thermoelectric transport and microstructure of optimized Mg2Si0.8Sn0.2</a>,</cite> <span class="publication-details">J. Mater. Chem. C, 2015, 3, 10467-10475 <small>(* equal contribution)</small></span></li>
+					</ol>
+				</div>
+			</section>
+
+			<section class="research-feature" id="defects-interfaces" aria-labelledby="defects-interfaces-title">
+				<div class="feature-layout">
+				<figure class="feature-image">
+					<img src="/images/main_defect_interface.png" alt="Atomic-scale scientific visualization of defects and interfaces in a material" width="1450" height="1085" loading="lazy" />
+				</figure>
+				<div class="feature-copy">
+					<p class="research-label">03 <span aria-hidden="true">·</span> Defects &amp; Interfaces</p>
+					<h2 id="defects-interfaces-title">Defect &amp; Interface Design</h2>
+					<p>We aim to bridge fundamental discoveries in 2D materials with their realization in quantum and electronic technologies by developing computational design principles for defects, interfaces, and quantum coherence. For quantum technologies, we use high-throughput first-principles and open-quantum-system approaches to identify defect-based spin-photonic qubits with favorable optical, spin, and coherence properties and to understand their decoherence mechanisms.</p>
+					<details class="research-details">
+						<summary><span class="details-more">More about this research ↓</span><span class="details-less">Less about this research ↑</span></summary>
+						<p>For advanced microelectronics, we combine first-principles calculations, continuum electrostatics, and quantum transport simulations to investigate contacts, doping, interfaces, and transport in emerging 2D materials. Ultimately, this work will enable rational design of materials and device architectures for quantum information processing and energy-efficient electronics.</p>
+					</details>
+				</div>
+				</div>
+				<div class="representative-publications">
+						<h3>Representative Publications</h3>
+						<ol>
+						<li><span class="publication-authors">S Gupta, W Yu, S Huang, B I. Yakobson.</span> <cite><a href="https://doi.org/10.1021/acs.jpclett.2c03674" target="_blank" rel="noopener noreferrer">Single-photon emission from two-dimensional materials, to a brighter future</a>,</cite> <span class="publication-details">J. Phys. Chem. Lett., 2023, 14, 3274–3284</span></li>
+						<li><span class="publication-authors">H Yu, S Gupta, A Kutana, B I. Yakobson,</span> <cite><a href="https://doi.org/10.1021/acs.jpclett.0c03663" target="_blank" rel="noopener noreferrer">Dimensionality-reduced Fermi-level pinning in coplanar 2D heterojunctions</a>,</cite> <span class="publication-details">J. Phys. Chem. Lett., 2021, 12, 17, 4299–4305 - Cover Article</span></li>
+						<li><span class="publication-authors">S Gupta, J H Yang, B I Yakobson.</span> <cite><a href="https://doi.org/10.1021/acs.nanolett.8b04159" target="_blank" rel="noopener noreferrer">Two-Level Quantum Systems in Two-Dimensional Materials for Single Photon Emission</a>,</cite> <span class="publication-details">Nano Letters, 2019, 19, 408-414 - featured on Rice News and Rice engineering magazine 2019</span></li>
+						</ol>
+				</div>
+			</section>
+		</div>
+	</main>
+	<Footer />
+</Layout>
+
+<style>
+	main { overflow: hidden; background: #fff; }
+	.page-inner { width: min(100% - 64px, 1280px); margin-inline: auto; }
+	.page-introduction { border-bottom: 1px solid #e2e3e5; }
+	.intro-inner { padding-block: clamp(46px, 5vw, 74px); }
+	.section-label { margin: 0; color: #896400; font-size: 0.72rem; font-weight: 750; letter-spacing: 0.15em; text-transform: uppercase; }
+	h1, h2 { font-family: Georgia, 'Times New Roman', serif; font-weight: 400; letter-spacing: -0.04em; }
+	h1 { margin: 16px 0 0; font-size: clamp(2.75rem, 4.5vw, 4.5rem); line-height: 1.06; }
+	.intro-copy { max-width: 900px; margin: 28px 0 0; color: #4b4f57; font-size: clamp(1.05rem, 1.35vw, 1.22rem); line-height: 1.72; text-wrap: pretty; }
+	.research-directions { padding-bottom: clamp(56px, 6vw, 88px); }
+	.research-feature { padding-block: clamp(76px, 7vw, 96px); scroll-margin-top: 24px; }
+	.research-feature:first-child { padding-top: clamp(60px, 5vw, 72px); }
+	.research-feature + .research-feature { border-top: 1px solid #dedfe2; }
+	.feature-layout { display: grid; grid-template-columns: minmax(0, 47fr) minmax(0, 53fr); gap: clamp(48px, 6vw, 88px); align-items: start; }
+	.feature-reversed .feature-layout { grid-template-columns: minmax(0, 53fr) minmax(0, 47fr); }
+	.feature-image { margin: 0; aspect-ratio: 4 / 3; overflow: hidden; background: #f7f8f8; }
+	.feature-image img { display: block; width: 100%; height: 100%; object-fit: contain; object-position: center; }
+	.synthesis-image img { object-fit: cover; object-position: center; transform: scale(1.015); }
+	.feature-copy { max-width: 630px; }
+	.research-label { margin: 0 0 16px; color: #896400; font-size: 0.68rem; font-weight: 750; letter-spacing: 0.14em; text-transform: uppercase; }
+	.research-label span { color: #c99700; }
+	.feature-copy h2 { margin: 0; font-size: clamp(2.25rem, 3.5vw, 3.75rem); line-height: 1.08; text-wrap: balance; }
+	.feature-copy p { max-width: 600px; margin: 26px 0 0; color: #555a63; font-size: clamp(1rem, 1.2vw, 1.12rem); line-height: 1.72; }
+	.research-details { margin-top: 18px; }
+	.research-details summary { width: fit-content; padding: 4px 0 7px; border-bottom: 1px solid #c99700; color: #292c32; cursor: pointer; font-size: 0.84rem; font-weight: 620; list-style: none; transition: color 160ms ease, border-color 160ms ease; }
+	.research-details summary::-webkit-details-marker { display: none; }
+	.research-details summary:hover { color: #6f5200; border-color: #896400; }
+	.research-details summary:focus-visible { color: #6f5200; outline: 2px solid #c99700; outline-offset: 4px; }
+	.research-details .details-less { display: none; }
+	.research-details[open] .details-more { display: none; }
+	.research-details[open] .details-less { display: inline; }
+	.feature-copy .research-details p { margin-top: 18px; }
+	.representative-publications { width: 100%; min-width: 0; margin-top: clamp(36px, 4vw, 52px); padding-top: 22px; border-top: 1px solid #dedfe2; }
+	.representative-publications h3 { margin: 0 0 20px; color: #896400; font-size: 0.68rem; font-weight: 750; letter-spacing: 0.14em; text-transform: uppercase; }
+	.representative-publications ol { margin: 0; padding-left: 1.35rem; color: #896400; }
+	.representative-publications li { min-width: 0; padding-left: 0.35rem; color: #555a63; font-size: 0.86rem; line-height: 1.58; overflow-wrap: anywhere; }
+	.representative-publications li + li { margin-top: 16px; }
+	.representative-publications li::marker { color: #896400; font-weight: 700; }
+	.representative-publications cite { color: #292c32; font-style: normal; font-weight: 600; }
+	.representative-publications cite a { color: inherit; text-decoration-color: transparent; text-decoration-thickness: 1px; text-underline-offset: 0.2em; transition: color 160ms ease, text-decoration-color 160ms ease; }
+	.representative-publications cite a:hover { color: #6f5200; text-decoration-color: #c99700; }
+	.representative-publications cite a:focus-visible { color: #6f5200; outline: 2px solid #c99700; outline-offset: 3px; text-decoration-color: #c99700; }
+	.publication-authors, .publication-details { color: #62666e; }
+	.representative-publications small { font-size: 0.9em; }
+
+	@media (max-width: 800px) {
+		.feature-layout, .feature-reversed .feature-layout { gap: 40px; }
+		.feature-copy h2 { font-size: clamp(2rem, 5vw, 2.8rem); }
+	}
+
+	@media (max-width: 600px) {
+		.page-inner { width: min(100% - 40px, 1280px); }
+		.intro-inner { padding-block: 38px 44px; }
+		h1 { font-size: clamp(2.45rem, 12vw, 3.35rem); }
+		.intro-copy { margin-top: 24px; font-size: 1rem; line-height: 1.65; }
+		.research-directions { padding-bottom: 28px; }
+		.research-feature { padding-block: 52px; }
+		.feature-layout, .feature-reversed .feature-layout { grid-template-columns: 1fr; gap: 30px; }
+		.research-feature:first-child { padding-top: 48px; }
+		.research-feature .feature-image { order: -1; }
+		.synthesis-image img { object-fit: contain; transform: none; }
+		.feature-copy h2 { font-size: clamp(2rem, 9vw, 2.65rem); line-height: 1.12; }
+		.feature-copy p { margin-top: 20px; font-size: 1rem; line-height: 1.68; }
+		.representative-publications { margin-top: 30px; padding-top: 20px; }
+		.representative-publications li { font-size: 0.85rem; }
+	}
+</style>
