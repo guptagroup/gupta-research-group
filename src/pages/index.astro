@@ -9,7 +9,7 @@ import Layout from '../layouts/Layout.astro';
 	<main>
 		<section class="hero" aria-labelledby="hero-title">
 			<div class="hero-copy">
-				<p class="eyebrow">Gupta Research Group <span aria-hidden="true">·</span> UCF</p>
+				<p class="eyebrow page-eyebrow">Gupta Research Group <span aria-hidden="true">·</span> UCF</p>
 				<h1 id="hero-title">Designing materials for next-generation quantum and electronic technologies</h1>
 				<p class="introduction">
 					We combine quantum-mechanical simulations and machine learning to design low-dimensional materials for
@@ -372,25 +372,21 @@ import Layout from '../layouts/Layout.astro';
 		min-height: min(720px, calc(100vh - 80px));
 		max-height: 880px;
 		margin-inline: auto;
-		padding-block: clamp(40px, 4.5vh, 58px);
+		padding-block: var(--page-header-padding-block);
 	}
 
 	.hero-copy {
+		align-self: start;
 		max-width: 730px;
-	}
-
-	.eyebrow {
-		margin: 0 0 24px;
-		color: #896400;
-		font-size: 0.74rem;
-		font-weight: 750;
-		letter-spacing: 0.14em;
-		text-transform: uppercase;
 	}
 
 	.eyebrow span {
 		margin-inline: 0.35em;
 		color: #ffc904;
+	}
+
+	.eyebrow + h1 {
+		margin-top: var(--page-eyebrow-heading-gap);
 	}
 
 	h1 {
@@ -458,6 +454,7 @@ import Layout from '../layouts/Layout.astro';
 		width: 100%;
 		height: auto;
 		aspect-ratio: 1671 / 941;
+		filter: contrast(1.15) brightness(0.95) saturate(1.05);
 		object-fit: contain;
 	}
 
@@ -1001,7 +998,7 @@ import Layout from '../layouts/Layout.astro';
 			gap: 48px;
 			min-height: auto;
 			max-height: none;
-			padding-block: 46px;
+			padding-block: var(--page-header-padding-block);
 		}
 
 		.hero-copy {
@@ -1038,15 +1035,17 @@ import Layout from '../layouts/Layout.astro';
 		}
 	}
 
+	@media (max-width: 700px) {
+		.hero {
+			padding-block: var(--page-header-padding-block-mobile);
+		}
+	}
+
 	@media (max-width: 600px) {
 		.hero {
 			width: min(100% - 40px, 1440px);
 			gap: 40px;
-			padding-block: 36px 40px;
-		}
-
-		.eyebrow {
-			margin-bottom: 18px;
+			padding-block: var(--page-header-padding-block-mobile);
 		}
 
 		h1 {

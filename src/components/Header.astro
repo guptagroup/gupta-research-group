@@ -1,12 +1,13 @@
 ---
 const navigation = [
+	{ label: 'Home', href: '/' },
 	{ label: 'Research', href: '/research' },
 	{ label: 'People', href: '/people' },
 	{ label: 'Publications', href: '/publications' },
 	{ label: 'Join Us', href: '/join-us' },
 ];
 
-const currentPath = Astro.url.pathname;
+const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
 ---
 
 <header class="site-header">
@@ -52,8 +53,8 @@ const currentPath = Astro.url.pathname;
 	}
 
 	.wordmark {
-		font-size: 1.08rem;
-		font-weight: 680;
+		font-size: 1.4rem;
+		font-weight: 700;
 		letter-spacing: -0.025em;
 		text-decoration: none;
 	}
@@ -97,6 +98,10 @@ const currentPath = Astro.url.pathname;
 	}
 
 	@media (max-width: 800px) {
+		.wordmark {
+			font-size: 1.15rem;
+		}
+
 		.header-inner {
 			width: min(100% - 40px, 1440px);
 			height: 70px;
@@ -152,6 +157,10 @@ const currentPath = Astro.url.pathname;
 			border-bottom: 1px solid #eff0f1;
 			font-size: 0.96rem;
 			text-decoration: none;
+		}
+
+		.mobile-nav nav a[aria-current='page'] {
+			color: #8a6300;
 		}
 
 		.mobile-nav nav .mobile-ucf {

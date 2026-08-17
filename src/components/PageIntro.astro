@@ -1,0 +1,109 @@
+---
+interface Props {
+	label?: string;
+	title: string;
+}
+
+const { label, title } = Astro.props;
+const hasAside = Astro.slots.has('aside');
+---
+
+<header class="page-intro">
+	<div class:list={['page-intro__inner', { 'page-intro__inner--with-aside': hasAside }]}>
+		<div class="page-intro__primary">
+			{label && <p class="page-intro__label page-eyebrow">{label}</p>}
+			<h1 class="page-intro__heading">{title}</h1>
+			<div class="page-intro__body"><slot /></div>
+		</div>
+		{hasAside && <div class="page-intro__aside"><slot name="aside" /></div>}
+	</div>
+</header>
+
+<style>
+	.page-intro {
+		border-bottom: 1px solid #e5e5e2;
+		background: #faf9f6;
+	}
+
+	.page-intro__inner {
+		display: flex;
+		width: min(100% - 64px, 1280px);
+		min-height: 320px;
+		margin-inline: auto;
+		padding-block: var(--page-header-padding-block);
+	}
+
+	.page-intro__inner--with-aside {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) auto;
+		gap: 52px;
+		align-items: start;
+	}
+
+	.page-intro__primary {
+		min-width: 0;
+	}
+
+	.page-intro__heading {
+		margin: 0;
+		font-family: Georgia, 'Times New Roman', serif;
+		font-size: clamp(2.75rem, 4.5vw, 4.5rem);
+		font-weight: 400;
+		letter-spacing: -0.04em;
+		line-height: 1.06;
+		text-wrap: balance;
+	}
+
+	.page-intro__label + .page-intro__heading {
+		margin-top: var(--page-eyebrow-heading-gap);
+	}
+
+	.page-intro__body:empty {
+		display: none;
+	}
+
+	.page-intro__body :global(p) {
+		max-width: 850px;
+		margin: 22px 0 0;
+		color: #4b4f57;
+		font-size: clamp(1.05rem, 1.35vw, 1.22rem);
+		line-height: 1.65;
+		text-wrap: pretty;
+	}
+
+	.page-intro__aside {
+		min-width: 190px;
+	}
+
+	@media (max-width: 700px) {
+		.page-intro__inner,
+		.page-intro__inner--with-aside {
+			display: grid;
+			grid-template-columns: 1fr;
+			gap: 24px;
+			min-height: 0;
+			padding-block: var(--page-header-padding-block-mobile);
+		}
+
+		.page-intro__heading {
+			font-size: clamp(2.45rem, 12vw, 3.35rem);
+		}
+
+		.page-intro__body :global(p) {
+			margin-top: 20px;
+			font-size: 1rem;
+			line-height: 1.6;
+		}
+
+		.page-intro__aside {
+			min-width: 0;
+		}
+	}
+
+	@media (max-width: 600px) {
+		.page-intro__inner,
+		.page-intro__inner--with-aside {
+			width: min(100% - 40px, 1280px);
+		}
+	}
+</style>
