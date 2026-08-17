@@ -1,23 +1,25 @@
 ---
+const base = import.meta.env.BASE_URL;
 const navigation = [
-	{ label: 'Home', href: '/' },
-	{ label: 'Research', href: '/research' },
-	{ label: 'People', href: '/people' },
-	{ label: 'Publications', href: '/publications' },
-	{ label: 'Join Us', href: '/join-us' },
+	{ label: 'Home', href: base },
+	{ label: 'Research', href: `${base}/research` },
+	{ label: 'People', href: `${base}/people` },
+	{ label: 'Publications', href: `${base}/publications` },
+	{ label: 'Join Us', href: `${base}/join-us` },
 ];
 
-const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
+const normalizePath = (path: string) => path.replace(/\/$/, '') || '/';
+const currentPath = normalizePath(Astro.url.pathname);
 ---
 
 <header class="site-header">
 	<div class="header-inner">
-		<a class="wordmark" href="/" aria-label="Gupta Research Group home">Gupta Research Group</a>
+		<a class="wordmark" href={base} aria-label="Gupta Research Group home">Gupta Research Group</a>
 
 		<nav class="desktop-nav" aria-label="Primary navigation">
 			<ul>
 				{navigation.map((item) => (
-					<li><a href={item.href} aria-current={currentPath === item.href ? 'page' : undefined}>{item.label}</a></li>
+					<li><a href={item.href} aria-current={currentPath === normalizePath(item.href) ? 'page' : undefined}>{item.label}</a></li>
 				))}
 			</ul>
 			<a class="ucf-link" href="https://www.ucf.edu/" target="_blank" rel="noopener noreferrer">UCF</a>
@@ -27,7 +29,7 @@ const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
 			<summary aria-label="Toggle navigation"><span>Menu</span></summary>
 			<nav aria-label="Mobile navigation">
 				{navigation.map((item) => (
-					<a href={item.href} aria-current={currentPath === item.href ? 'page' : undefined}>{item.label}</a>
+					<a href={item.href} aria-current={currentPath === normalizePath(item.href) ? 'page' : undefined}>{item.label}</a>
 				))}
 				<a class="mobile-ucf" href="https://www.ucf.edu/" target="_blank" rel="noopener noreferrer">UCF</a>
 			</nav>

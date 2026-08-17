@@ -3,6 +3,8 @@ import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import PageIntro from '../components/PageIntro.astro';
 import Layout from '../layouts/Layout.astro';
+
+const base = import.meta.env.BASE_URL;
 ---
 
 <Layout
@@ -21,7 +23,7 @@ import Layout from '../layouts/Layout.astro';
 			<section class="research-feature" id="inverse-design" aria-labelledby="inverse-design-title">
 				<div class="feature-layout">
 				<figure class="feature-image">
-					<img src="/images/main_inverse_design.png" alt="Scientific visualization representing inverse design of low-dimensional quantum materials" width="3308" height="2475" />
+					<img src={`${base}/images/main_inverse_design.png`} alt="Scientific visualization representing inverse design of low-dimensional quantum materials" width="3308" height="2475" />
 				</figure>
 				<div class="feature-copy">
 					<p class="research-label">01 <span aria-hidden="true">·</span> Inverse Design</p>
@@ -55,7 +57,7 @@ import Layout from '../layouts/Layout.astro';
 					</details>
 				</div>
 				<figure class="feature-image synthesis-image">
-					<img src="/images/main_synthesis_science.png" alt="Scientific visualization of molecular deposition and material formation on a surface" width="1536" height="1024" loading="lazy" />
+					<img src={`${base}/images/main_synthesis_science.png`} alt="Scientific visualization of molecular deposition and material formation on a surface" width="1536" height="1024" loading="lazy" />
 				</figure>
 				</div>
 				<div class="representative-publications">
@@ -71,7 +73,7 @@ import Layout from '../layouts/Layout.astro';
 			<section class="research-feature" id="defects-interfaces" aria-labelledby="defects-interfaces-title">
 				<div class="feature-layout">
 				<figure class="feature-image">
-					<img src="/images/main_defect_interface.png" alt="Atomic-scale scientific visualization of defects and interfaces in a material" width="1450" height="1085" loading="lazy" />
+					<img src={`${base}/images/main_defect_interface.png`} alt="Atomic-scale scientific visualization of defects and interfaces in a material" width="1450" height="1085" loading="lazy" />
 				</figure>
 				<div class="feature-copy">
 					<p class="research-label">03 <span aria-hidden="true">·</span> Defects &amp; Interfaces</p>
