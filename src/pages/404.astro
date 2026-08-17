@@ -1,0 +1,31 @@
+---
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+	title="404 | Gupta Research Group"
+	description="The requested page could not be found on the Gupta Research Group website."
+>
+	<Header />
+	<main>
+		<section class="not-found" aria-labelledby="not-found-heading">
+			<p class="page-eyebrow">404</p>
+			<h1 id="not-found-heading">Page not found</h1>
+			<a href="/">Return Home <span aria-hidden="true">→</span></a>
+		</section>
+	</main>
+	<Footer />
+</Layout>
+
+<style>
+	.not-found { width: min(100% - 64px, 1280px); min-height: 55vh; margin-inline: auto; padding-block: var(--page-header-padding-block); }
+	h1 { margin: var(--page-eyebrow-heading-gap) 0 28px; font-family: Georgia, 'Times New Roman', serif; font-size: clamp(2.75rem, 4.5vw, 4.5rem); font-weight: 400; letter-spacing: -0.04em; line-height: 1.06; }
+	a { color: #292c32; font-size: 0.92rem; font-weight: 650; text-decoration-color: #c99700; text-underline-offset: 0.22em; }
+	a:hover { color: #896400; }
+
+	@media (max-width: 600px) {
+		.not-found { width: min(100% - 40px, 1280px); padding-block: var(--page-header-padding-block-mobile); }
+	}
+</style>

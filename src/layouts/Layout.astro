@@ -5,7 +5,7 @@ interface Props {
 }
 
 const {
-	title = 'Gupta Research Group | University of Central Florida',
+	title = 'Gupta Research Group | UCF',
 	description = 'The Gupta Research Group designs low-dimensional materials for next-generation quantum and electronic technologies.',
 } = Astro.props;
 ---
@@ -54,6 +54,13 @@ const {
 
 	a {
 		color: inherit;
+	}
+
+	a:focus-visible,
+	button:focus-visible,
+	summary:focus-visible {
+		outline: 2px solid #c99700;
+		outline-offset: 4px;
 	}
 
 	button,

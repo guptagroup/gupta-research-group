@@ -20,7 +20,7 @@ const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
 					<li><a href={item.href} aria-current={currentPath === item.href ? 'page' : undefined}>{item.label}</a></li>
 				))}
 			</ul>
-			<a class="ucf-link" href="#">UCF</a>
+			<a class="ucf-link" href="https://www.ucf.edu/" target="_blank" rel="noopener noreferrer">UCF</a>
 		</nav>
 
 		<details class="mobile-nav">
@@ -29,7 +29,7 @@ const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
 				{navigation.map((item) => (
 					<a href={item.href} aria-current={currentPath === item.href ? 'page' : undefined}>{item.label}</a>
 				))}
-				<a class="mobile-ucf" href="#">UCF</a>
+				<a class="mobile-ucf" href="https://www.ucf.edu/" target="_blank" rel="noopener noreferrer">UCF</a>
 			</nav>
 		</details>
 	</div>
