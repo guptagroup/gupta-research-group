@@ -1,0 +1,113 @@
+---
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import Layout from '../layouts/Layout.astro';
+
+const opportunities = [
+	{
+		number: '01',
+		heading: 'Postdoctoral Researchers',
+		paragraphs: [
+			'We are seeking postdoctoral researchers with a strong background in computational materials science. Applicants should have experience in one or more areas including density functional theory (DFT), molecular dynamics (MD), machine-learning-based interatomic potentials, and transport modeling.',
+			'We are particularly interested in researchers who are excited to develop and apply computational methods to problems spanning low-dimensional materials, predictive synthesis, defects, interfaces, quantum materials, and emerging electronic technologies.',
+		],
+	},
+	{
+		number: '02',
+		heading: 'PhD Students',
+		paragraphs: [
+			'We welcome applications from students interested in computational materials science, quantum materials, materials synthesis, defects, interfaces, and electronic materials.',
+			'Prior research experience in computational materials science or related computational methods is preferred but not required. We value strong fundamentals, curiosity, and an interest in developing computational approaches to materials problems.',
+		],
+	},
+	{
+		number: '03',
+		heading: 'Undergraduate Researchers',
+		paragraphs: [
+			'UCF undergraduate students interested in gaining research experience in computational materials science and related areas are encouraged to get in touch.',
+			"Potential projects will depend on the student's interests, background, and the group's ongoing research.",
+		],
+	},
+];
+---
+
+<Layout
+	title="Join Us | Gupta Research Group"
+	description="Research opportunities with the Gupta Research Group at the University of Central Florida."
+>
+	<Header />
+	<main>
+		<header class="page-introduction">
+			<div class="page-inner intro-inner">
+				<p class="section-label">Join Us</p>
+				<h1>Join the Gupta Research Group</h1>
+				<p class="intro-copy">We welcome motivated postdoctoral researchers, PhD students, and undergraduate researchers interested in addressing fundamental materials challenges in low-dimensional materials-based emerging quantum and electronic technologies.</p>
+			</div>
+		</header>
+
+		<div class="opportunities page-inner" aria-label="Research opportunities">
+			{opportunities.map((opportunity) => (
+				<section class="opportunity" aria-labelledby={`opportunity-${opportunity.number}`}>
+					<div class="opportunity-marker" aria-hidden="true">{opportunity.number}</div>
+					<div class="opportunity-content">
+						<h2 id={`opportunity-${opportunity.number}`}>{opportunity.heading}</h2>
+						<div class="opportunity-copy">
+							{opportunity.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+						</div>
+					</div>
+				</section>
+			))}
+		</div>
+
+		<section class="application" aria-labelledby="application-heading">
+			<div class="page-inner application-inner">
+				<p class="section-label">How to Apply</p>
+				<h2 id="application-heading">Interested in joining us?</h2>
+				<p class="application-intro">Please email Dr. Sunny Gupta at <a href="mailto:sunny.gupta@ucf.edu">sunny.gupta@ucf.edu</a> with <strong>CV</strong> and a <strong>brief statement of research interests</strong>.</p>
+			</div>
+		</section>
+	</main>
+	<Footer />
+</Layout>
+
+<style>
+	main { overflow: hidden; background: #fff; }
+	.page-inner { width: min(100% - 64px, 1280px); margin-inline: auto; }
+	.page-introduction { border-bottom: 1px solid #e5e5e2; background: #faf9f6; }
+	.intro-inner { padding-block: clamp(64px, 5vw, 76px); }
+	.section-label { margin: 0; color: #896400; font-size: 0.72rem; font-weight: 750; letter-spacing: 0.15em; text-transform: uppercase; }
+	h1, h2 { font-family: Georgia, 'Times New Roman', serif; font-weight: 400; letter-spacing: -0.04em; text-wrap: balance; }
+	h1 { max-width: 970px; margin: 16px 0 0; font-size: clamp(2.75rem, 4.5vw, 4.5rem); line-height: 1.06; }
+	.intro-copy { max-width: 850px; margin: 28px 0 0; color: #4b4f57; font-size: clamp(1.05rem, 1.35vw, 1.22rem); line-height: 1.7; text-wrap: pretty; }
+	.opportunities { padding-block: 8px 0; }
+	.opportunity { display: grid; grid-template-columns: minmax(90px, 17fr) minmax(0, 83fr); gap: clamp(24px, 3vw, 44px); padding-block: clamp(42px, 4vw, 54px); border-bottom: 1px solid #dedfe2; }
+	.opportunity:first-child { border-top: 1px solid #dedfe2; }
+	.opportunity-marker { padding-top: 2px; color: #896400; font-family: Georgia, 'Times New Roman', serif; font-size: 1.15rem; line-height: 1; }
+	.opportunity-content { max-width: 920px; }
+	.opportunity-content h2 { margin: 0; font-size: clamp(2.25rem, 3.6vw, 3.75rem); line-height: 1.08; }
+	.opportunity-copy { max-width: 850px; margin-top: 18px; color: #555a63; font-size: clamp(1rem, 1.15vw, 1.1rem); line-height: 1.75; text-wrap: pretty; }
+	.opportunity-copy p { margin: 0; }
+	.opportunity-copy p + p { margin-top: 0.75em; }
+	.application { border-top: 1px solid #deddd8; background: #f7f6f2; color: #17191e; }
+	.application-inner { padding-block: clamp(48px, 4.5vw, 64px); }
+	.application .section-label { color: #896400; }
+	.application h2 { max-width: 780px; margin: 16px 0 0; font-size: clamp(2.5rem, 3.8vw, 3.75rem); line-height: 1.06; }
+	.application-intro { max-width: 850px; margin: 20px 0 0; color: #555a63; font-size: clamp(1rem, 1.2vw, 1.12rem); line-height: 1.7; }
+	.application-intro a { color: #292c32; overflow-wrap: anywhere; text-decoration-color: #c99700; text-underline-offset: 0.22em; }
+	.application-intro strong { color: #292c32; font-weight: 650; }
+	.application a:focus-visible { outline: 2px solid #c99700; outline-offset: 4px; }
+
+	@media (max-width: 600px) {
+		.page-inner { width: min(100% - 40px, 1280px); }
+		.intro-inner { padding-block: 40px 44px; }
+		h1 { font-size: clamp(2.45rem, 12vw, 3.35rem); }
+		.intro-copy { margin-top: 24px; font-size: 1rem; line-height: 1.65; }
+		.opportunities { padding-block: 4px 0; }
+		.opportunity { grid-template-columns: 1fr; gap: 14px; padding-block: 38px; }
+		.opportunity-marker { font-size: 1rem; }
+		.opportunity-content h2 { font-size: clamp(2rem, 9vw, 2.65rem); line-height: 1.12; }
+		.opportunity-copy { margin-top: 16px; font-size: 1rem; line-height: 1.68; }
+		.application-inner { padding-block: 42px 46px; }
+		.application h2 { font-size: clamp(2.35rem, 11vw, 3.25rem); }
+	}
+</style>
