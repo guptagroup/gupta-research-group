@@ -9,7 +9,11 @@ const base = import.meta.env.BASE_URL;
 <Layout>
 	<Header />
 	<main>
-		<section class="hero" aria-labelledby="hero-title">
+		<section
+			class="hero"
+			aria-labelledby="hero-title"
+			style={`--hero-image: url("${base}/images/hero1.png")`}
+		>
 			<div class="hero-copy">
 				<p class="eyebrow page-eyebrow">Gupta Research Group <span aria-hidden="true">·</span> UCF</p>
 				<h1 id="hero-title">Designing materials for next-generation quantum and electronic technologies</h1>
@@ -19,16 +23,6 @@ const base = import.meta.env.BASE_URL;
 				</p>
 				<a class="cta" href={`${base}/research`}>Explore Our Research <span aria-hidden="true">→</span></a>
 			</div>
-
-			<figure class="hero-visual">
-				<img
-					src={`${base}/images/hero1.png`}
-					alt="Scientific visualization of quantum states, a low-dimensional atomic lattice, and electronic waves"
-					width="1671"
-					height="941"
-					fetchpriority="high"
-				/>
-			</figure>
 		</section>
 
 		<section class="about" aria-labelledby="about-heading">
@@ -366,20 +360,26 @@ const base = import.meta.env.BASE_URL;
 	}
 
 	.hero {
-		display: grid;
-		grid-template-columns: minmax(0, 52fr) minmax(0, 48fr);
+		display: flex;
 		align-items: center;
-		gap: clamp(42px, 5vw, 84px);
-		width: min(100% - 64px, 1440px);
-		min-height: min(720px, calc(100vh - 80px));
-		max-height: 880px;
-		margin-inline: auto;
-		padding-block: var(--page-header-padding-block);
+		min-height: clamp(560px, calc(100svh - 80px), 620px);
+		padding: clamp(64px, 7vw, 96px) max(32px, calc((100% - 1440px) / 2));
+		background-color: #121820;
+		background-image:
+			linear-gradient(90deg, rgb(10 15 22 / 96%) 0%, rgb(10 15 22 / 88%) 36%, rgb(10 15 22 / 48%) 60%, rgb(10 15 22 / 10%) 82%),
+			var(--hero-image);
+		background-position: center, center right;
+		background-size: cover;
+		box-shadow: inset 0 -1px rgb(255 255 255 / 10%), 0 12px 32px rgb(17 19 24 / 10%);
 	}
 
 	.hero-copy {
-		align-self: start;
-		max-width: 730px;
+		width: min(52%, 730px);
+		color: #f7f5ef;
+	}
+
+	.hero .page-eyebrow {
+		color: #e4b526;
 	}
 
 	.eyebrow span {
@@ -404,7 +404,7 @@ const base = import.meta.env.BASE_URL;
 	.introduction {
 		max-width: 670px;
 		margin: 30px 0 0;
-		color: #4b4f57;
+		color: #dedfe1;
 		font-size: clamp(1rem, 1.15vw, 1.12rem);
 		line-height: 1.72;
 	}
@@ -417,6 +417,7 @@ const base = import.meta.env.BASE_URL;
 		padding-bottom: 9px;
 		font-size: 0.9rem;
 		font-weight: 620;
+		color: #f7f5ef;
 		text-decoration: none;
 		position: relative;
 	}
@@ -445,19 +446,6 @@ const base = import.meta.env.BASE_URL;
 	.cta:hover::after,
 	.cta:focus-visible::after {
 		width: 52px;
-	}
-
-	.hero-visual {
-		margin: 0;
-	}
-
-	.hero-visual img {
-		display: block;
-		width: 100%;
-		height: auto;
-		aspect-ratio: 1671 / 941;
-		filter: contrast(1.15) brightness(0.95) saturate(1.05);
-		object-fit: contain;
 	}
 
 	.section-inner {
@@ -996,19 +984,16 @@ const base = import.meta.env.BASE_URL;
 
 	@media (max-width: 980px) {
 		.hero {
-			grid-template-columns: 1fr;
-			gap: 48px;
-			min-height: auto;
-			max-height: none;
-			padding-block: var(--page-header-padding-block);
+			min-height: 560px;
+			padding-inline: 32px;
+			background-image:
+				linear-gradient(90deg, rgb(10 15 22 / 96%) 0%, rgb(10 15 22 / 82%) 48%, rgb(10 15 22 / 32%) 82%),
+				var(--hero-image);
+			background-position: center, 64% center;
 		}
 
 		.hero-copy {
-			max-width: 790px;
-		}
-
-		.hero-visual {
-			width: 100%;
+			width: min(68%, 690px);
 		}
 
 		.about-inner {
@@ -1039,15 +1024,32 @@ const base = import.meta.env.BASE_URL;
 
 	@media (max-width: 700px) {
 		.hero {
+			min-height: 540px;
 			padding-block: var(--page-header-padding-block-mobile);
+			background-image:
+				linear-gradient(90deg, rgb(10 15 22 / 96%) 0%, rgb(10 15 22 / 86%) 62%, rgb(10 15 22 / 56%) 100%),
+				var(--hero-image);
+			background-position: center, 66% center;
+		}
+
+		.hero-copy {
+			width: min(90%, 620px);
 		}
 	}
 
 	@media (max-width: 600px) {
 		.hero {
-			width: min(100% - 40px, 1440px);
-			gap: 40px;
-			padding-block: var(--page-header-padding-block-mobile);
+			min-height: 520px;
+			padding-inline: 20px;
+			background-image:
+				linear-gradient(90deg, rgb(10 15 22 / 97%) 0%, rgb(10 15 22 / 88%) 68%, rgb(10 15 22 / 66%) 100%),
+				var(--hero-image);
+			background-position: center, 68% center;
+		}
+
+		.hero-copy {
+			width: 100%;
+			max-width: 520px;
 		}
 
 		h1 {
