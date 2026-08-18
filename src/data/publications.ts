@@ -200,3 +200,13 @@ export const publications: Publication[] = [
 		doi: '10.1039/C5TC01535A',
 	},
 ];
+
+export function getPublicationByDoi(doi: string): Publication {
+	const publication = publications.find((candidate) => candidate.doi === doi);
+
+	if (!publication) {
+		throw new Error(`Publication not found for DOI: ${doi}`);
+	}
+
+	return publication;
+}

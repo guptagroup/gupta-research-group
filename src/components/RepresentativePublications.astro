@@ -1,0 +1,51 @@
+---
+import type { Publication } from '../data/publications';
+
+interface Props {
+	publications: Publication[];
+}
+
+const { publications } = Astro.props;
+---
+
+<div class="representative-publications">
+	<h3>Representative Publications</h3>
+	<ol>
+		{publications.map((publication) => (
+			<li>
+				<span class="publication-authors">{publication.authors},</span>{' '}
+				<cite>
+					{publication.articleUrl ? (
+						<a href={publication.articleUrl} target="_blank" rel="noopener noreferrer">{publication.title}</a>
+					) : publication.title},
+				</cite>{' '}
+				<span class="publication-details">
+					{publication.journal}{publication.notes && ` - ${publication.notes}`}
+				</span>
+			</li>
+		))}
+	</ol>
+</div>
+
+<style>
+	.representative-publications { width: 100%; min-width: 0; margin-top: clamp(38px, 4vw, 54px); padding-top: 23px; border-top: 1px solid #e2e2df; }
+	.representative-publications h3 { margin: 0 0 20px; color: #896400; font-size: 0.68rem; font-weight: 750; letter-spacing: 0.14em; text-transform: uppercase; }
+	.representative-publications ol { margin: 0; padding-left: 1.35rem; color: #896400; }
+	.representative-publications li { min-width: 0; margin-left: -0.2rem; padding: 5px 8px 5px 0.55rem; color: #5d6169; font-size: 0.86rem; line-height: 1.58; overflow-wrap: anywhere; }
+	.representative-publications li + li { margin-top: 7px; }
+	.representative-publications li::marker { color: #896400; font-weight: 700; }
+	.representative-publications cite { color: #292c32; font-style: normal; font-weight: 600; }
+	.representative-publications cite a { color: inherit; text-decoration-color: transparent; text-decoration-thickness: 1px; text-underline-offset: 0.2em; transition: color 160ms ease, text-decoration-color 160ms ease; }
+	.representative-publications cite a:hover { color: #6f5200; text-decoration-color: #c99700; }
+	.representative-publications cite a:focus-visible { color: #6f5200; outline: 2px solid #c99700; outline-offset: 3px; text-decoration-color: #c99700; }
+	.publication-authors, .publication-details { color: #62666e; }
+
+	@media (prefers-reduced-motion: reduce) {
+		.representative-publications cite a { transition: none; }
+	}
+
+	@media (max-width: 600px) {
+		.representative-publications { margin-top: 30px; padding-top: 20px; }
+		.representative-publications li { font-size: 0.85rem; }
+	}
+</style>

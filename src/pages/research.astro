@@ -2,9 +2,28 @@
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import PageIntro from '../components/PageIntro.astro';
+import RepresentativePublications from '../components/RepresentativePublications.astro';
 import Layout from '../layouts/Layout.astro';
+import { getPublicationByDoi } from '../data/publications';
 
 const base = import.meta.env.BASE_URL;
+const representativePublications = {
+	inverseDesign: [
+		'10.1103/bxw4-7y5c',
+		'10.1016/j.matt.2025.102378',
+		'10.1038/s41467-022-30818-2',
+	].map(getPublicationByDoi),
+	predictiveSynthesis: [
+		'10.1002/aenm.202400163',
+		'10.1038/s41467-023-42538-2',
+		'10.1039/C5TC01535A',
+	].map(getPublicationByDoi),
+	defectsAndInterfaces: [
+		'10.1021/acs.jpclett.2c03674',
+		'10.1021/acs.jpclett.0c03663',
+		'10.1021/acs.nanolett.8b04159',
+	].map(getPublicationByDoi),
+};
 ---
 
 <Layout
@@ -15,7 +34,7 @@ const base = import.meta.env.BASE_URL;
 	<main>
 		<PageIntro label="Research" title="Research Directions">
 			<p>
-				We develop and apply computational approaches to address fundamental materials challenges in low-dimensional-materials-based quantum and electronic systems, spanning inverse materials design, synthesis science, and defect and interface engineering.
+				We develop and apply computational approaches to address fundamental challenges in low-dimensional materials for quantum and electronic systems, spanning inverse materials design, synthesis science, and defect and interface engineering.
 			</p>
 		</PageIntro>
 
@@ -28,21 +47,14 @@ const base = import.meta.env.BASE_URL;
 				<div class="feature-copy">
 					<p class="research-label">01 <span aria-hidden="true">·</span> Inverse Design</p>
 					<h2 id="inverse-design-title">Inverse Design of 2D Quantum Materials</h2>
-					<p>We aim to establish a new paradigm in which topographical deformations are used to engineer emergent electronic and quantum phases in 2D materials, replacing serendipitous materials discovery with geometry-driven design. Using multiscale computational approaches, we investigate how deformation-induced pseudo-electric and pseudo-magnetic fields reshape electronic structure and give rise to correlated electronic states, exotic optical and magnetic properties.</p>
+					<p>Discovering materials with targeted functionalities is central to next-generation electronic and quantum technologies. But must new materials always be discovered to realize new functionalities? We aim to establish a new paradigm in which topographical deformations are used to engineer emergent electronic and quantum phases in 2D materials, moving beyond serendipitous materials discovery toward geometry-driven design.</p>
 					<details class="research-details">
 						<summary><span class="details-more">More about this research ↓</span><span class="details-less">Less about this research ↑</span></summary>
-						<p>By connecting a prescribed deformation profile directly to an effective electronic Hamiltonian, we seek to develop general design rules for creating targeted quantum phases through geometry. This approach could provide a versatile route to tune spin, charge, optical, and magnetic behavior without changing the underlying material composition. Ultimately, this framework could enable tunable quantum functionality for sensing, logic, memory, and other emerging electronic technologies.</p>
+						<p>Using multiscale computational approaches, we investigate how deformation-induced pseudo-electric and pseudo-magnetic fields reshape electronic structure and give rise to correlated electronic states and exotic optical and magnetic properties. By connecting a prescribed deformation profile directly to an effective electronic Hamiltonian, we seek to develop general design rules for creating targeted quantum phases through geometry. This approach could provide a versatile route to tune spin, charge, optical, and magnetic behavior without changing the underlying material composition. Ultimately, this framework could enable tunable quantum functionality for sensing, logic, memory, and other emerging electronic technologies.</p>
 					</details>
 				</div>
 				</div>
-				<div class="representative-publications">
-						<h3>Representative Publications</h3>
-						<ol>
-						<li><span class="publication-authors">X Li, S Gupta, and B I Yakobson,</span> <cite><a href="https://journals.aps.org/prb/abstract/10.1103/bxw4-7y5c" target="_blank" rel="noopener noreferrer">Undulation-induced moiré superlattices with one-dimensional polarization domains and flat bands in two-dimensional bilayer semiconductors</a>,</cite> <span class="publication-details">Phys. Rev. B, 2025, 112, 115308 - Editors’ Suggestion</span></li>
-						<li><span class="publication-authors">S Gupta†, M N Mattur, and B I Yakobson†,</span> <cite><a href="https://doi.org/10.1016/j.matt.2025.102378" target="_blank" rel="noopener noreferrer">Mechanical crease in 2D materials – a platform for large spin-splitting and persistent spin-helix</a>,</cite> <span class="publication-details">Matter, 2025, 8, 102378 <small>(† corresponding author)</small> - featured on Rice News</span></li>
-						<li><span class="publication-authors">S Gupta, H Yu, B I. Yakobson,</span> <cite><a href="https://doi.org/10.1038/s41467-022-30818-2" target="_blank" rel="noopener noreferrer">Designing 1D correlated-electron states by non-Euclidean topography of 2D monolayers</a>,</cite> <span class="publication-details">Nature Commun., 2022, 13, 3103 - featured on Rice News, Materials Today, Physics World</span></li>
-						</ol>
-				</div>
+				<RepresentativePublications publications={representativePublications.inverseDesign} />
 			</section>
 
 			<section class="research-feature feature-reversed" id="synthesis-science" aria-labelledby="synthesis-science-title">
@@ -50,24 +62,17 @@ const base = import.meta.env.BASE_URL;
 				<div class="feature-copy">
 					<p class="research-label">02 <span aria-hidden="true">·</span> Synthesis Science</p>
 					<h2 id="synthesis-science-title">Predictive Synthesis</h2>
-					<p>Synthesis remains a major bottleneck in realizing the potential of 2D materials, in part because current modeling approaches often explain growth <em>post facto</em> rather than predict synthesis conditions. Using ML-based interatomic potentials coupled with thermodynamic, and kinetic models, we develop predictive frameworks for CVD growth that connect precursor chemistry, nucleation, and crystal growth across multiple time and length scales.</p>
+					<p>Synthesis remains a major bottleneck in realizing the potential of 2D materials. Can modeling approaches predict synthesis conditions rather than merely explain growth <em>post facto</em>? Using ML-based interatomic potentials coupled with thermodynamic and kinetic models, we develop predictive frameworks for CVD growth that connect precursor chemistry, nucleation, and crystal growth across multiple time and length scales.</p>
 					<details class="research-details">
 						<summary><span class="details-more">More about this research ↓</span><span class="details-less">Less about this research ↑</span></summary>
-						<p>We are also broadly interested in extending these approaches to predict synthesis pathways and processing conditions for bulk functional materials. Ultimately, this work aims to establish a general framework for rational synthesis design, enabling lower growth temperatures, reduced defect densities, improved crystal quality, and more reliable access to targeted materials and phases.</p>
+						<p>We are also broadly interested in extending these approaches to predict synthesis pathways and processing conditions for bulk functional materials. Ultimately, this work aims to establish a general framework for rational synthesis design, enabling lower growth temperatures, reduced defect densities, improved crystal quality, and more reliable synthesis of targeted materials and phases.</p>
 					</details>
 				</div>
 				<figure class="feature-image synthesis-image">
 					<img src={`${base}/images/main_synthesis_science.png`} alt="Scientific visualization of molecular deposition and material formation on a surface" width="1536" height="1024" loading="lazy" />
 				</figure>
 				</div>
-				<div class="representative-publications">
-					<h3>Representative Publications</h3>
-					<ol>
-						<li><span class="publication-authors">X Yang*, S Gupta*, Y Chen, D Sari, H-Hau, Z Cai, C Dun, M Qi, J Urban, Y Liu, and G Ceder,</span> <cite><a href="https://doi.org/10.1002/aenm.202400163" target="_blank" rel="noopener noreferrer">Fast Room-Temperature Mg-Ion Conduction in Clay-Like Halide Glassy Electrolytes</a>,</cite> <span class="publication-details">Advanced Energy Materials, 2024, 2400163 <small>(* equal contribution)</small></span></li>
-						<li><span class="publication-authors">S Gupta, X Yang, G Ceder,</span> <cite><a href="https://doi.org/10.1038/s41467-023-42538-2" target="_blank" rel="noopener noreferrer">What dictates soft clay-like Li superionic conductor formation from rigid salts mixture</a>,</cite> <span class="publication-details">Nature Commun., 2023, 14, 6884</span></li>
-						<li><span class="publication-authors">J de Boor*, S Gupta*, H Kolb, T Dasgupta and E Müller,</span> <cite><a href="https://doi.org/10.1039/C5TC01535A" target="_blank" rel="noopener noreferrer">Thermoelectric transport and microstructure of optimized Mg2Si0.8Sn0.2</a>,</cite> <span class="publication-details">J. Mater. Chem. C, 2015, 3, 10467-10475 <small>(* equal contribution)</small></span></li>
-					</ol>
-				</div>
+				<RepresentativePublications publications={representativePublications.predictiveSynthesis} />
 			</section>
 
 			<section class="research-feature" id="defects-interfaces" aria-labelledby="defects-interfaces-title">
@@ -78,21 +83,14 @@ const base = import.meta.env.BASE_URL;
 				<div class="feature-copy">
 					<p class="research-label">03 <span aria-hidden="true">·</span> Defects &amp; Interfaces</p>
 					<h2 id="defects-interfaces-title">Defect &amp; Interface Design</h2>
-					<p>We aim to bridge fundamental discoveries in 2D materials with their realization in quantum and electronic technologies by developing computational design principles for defects, interfaces, and quantum coherence. For quantum technologies, we use high-throughput first-principles and open-quantum-system approaches to identify defect-based spin-photonic qubits with favorable optical, spin, and coherence properties and to understand their decoherence mechanisms.</p>
+					<p>Although defects and interfaces are imperfections in materials, they are critical for integrating materials into functional devices. Can we develop a predictive framework for designing them during integration of 2D materials into quantum and electronic technologies? We aim to develop computational design principles for defects, interfaces, and quantum coherence.</p>
 					<details class="research-details">
 						<summary><span class="details-more">More about this research ↓</span><span class="details-less">Less about this research ↑</span></summary>
-						<p>For advanced microelectronics, we combine first-principles calculations, continuum electrostatics, and quantum transport simulations to investigate contacts, doping, interfaces, and transport in emerging 2D materials. Ultimately, this work will enable rational design of materials and device architectures for quantum information processing and energy-efficient electronics.</p>
+						<p>For quantum technologies, we use high-throughput first-principles and open-quantum-system approaches to identify defect-based spin-photonic qubits with favorable optical, spin, and coherence properties and to understand their decoherence mechanisms. For advanced microelectronics, we combine first-principles calculations, continuum electrostatics, and quantum transport simulations to investigate contacts, doping, interfaces, and transport in emerging 2D materials. Ultimately, this work will enable rational design of materials and device architectures for quantum information processing and energy-efficient electronics.</p>
 					</details>
 				</div>
 				</div>
-				<div class="representative-publications">
-						<h3>Representative Publications</h3>
-						<ol>
-						<li><span class="publication-authors">S Gupta, W Yu, S Huang, B I. Yakobson.</span> <cite><a href="https://doi.org/10.1021/acs.jpclett.2c03674" target="_blank" rel="noopener noreferrer">Single-photon emission from two-dimensional materials, to a brighter future</a>,</cite> <span class="publication-details">J. Phys. Chem. Lett., 2023, 14, 3274–3284</span></li>
-						<li><span class="publication-authors">H Yu, S Gupta, A Kutana, B I. Yakobson,</span> <cite><a href="https://doi.org/10.1021/acs.jpclett.0c03663" target="_blank" rel="noopener noreferrer">Dimensionality-reduced Fermi-level pinning in coplanar 2D heterojunctions</a>,</cite> <span class="publication-details">J. Phys. Chem. Lett., 2021, 12, 17, 4299–4305 - Cover Article</span></li>
-						<li><span class="publication-authors">S Gupta, J H Yang, B I Yakobson.</span> <cite><a href="https://doi.org/10.1021/acs.nanolett.8b04159" target="_blank" rel="noopener noreferrer">Two-Level Quantum Systems in Two-Dimensional Materials for Single Photon Emission</a>,</cite> <span class="publication-details">Nano Letters, 2019, 19, 408-414 - featured on Rice News and Rice engineering magazine 2019</span></li>
-						</ol>
-				</div>
+				<RepresentativePublications publications={representativePublications.defectsAndInterfaces} />
 			</section>
 		</div>
 	</main>
@@ -128,21 +126,17 @@ const base = import.meta.env.BASE_URL;
 	.research-details[open] .details-more { display: none; }
 	.research-details[open] .details-less { display: inline; }
 	.feature-copy .research-details p { margin-top: 20px; }
-	.representative-publications { width: 100%; min-width: 0; margin-top: clamp(38px, 4vw, 54px); padding-top: 23px; border-top: 1px solid #e2e2df; }
-	.representative-publications h3 { margin: 0 0 20px; color: #896400; font-size: 0.68rem; font-weight: 750; letter-spacing: 0.14em; text-transform: uppercase; }
-	.representative-publications ol { margin: 0; padding-left: 1.35rem; color: #896400; }
-	.representative-publications li { min-width: 0; margin-left: -0.2rem; padding: 5px 8px 5px 0.55rem; color: #5d6169; font-size: 0.86rem; line-height: 1.58; overflow-wrap: anywhere; }
-	.representative-publications li + li { margin-top: 7px; }
-	.representative-publications li::marker { color: #896400; font-weight: 700; }
-	.representative-publications cite { color: #292c32; font-style: normal; font-weight: 600; }
-	.representative-publications cite a { color: inherit; text-decoration-color: transparent; text-decoration-thickness: 1px; text-underline-offset: 0.2em; transition: color 160ms ease, text-decoration-color 160ms ease; }
-	.representative-publications cite a:hover { color: #6f5200; text-decoration-color: #c99700; }
-	.representative-publications cite a:focus-visible { color: #6f5200; outline: 2px solid #c99700; outline-offset: 3px; text-decoration-color: #c99700; }
-	.publication-authors, .publication-details { color: #62666e; }
-	.representative-publications small { font-size: 0.9em; }
 
+	@media (min-width: 801px) {
+		#inverse-design .feature-copy { align-self: start; }
+		#inverse-design .research-label { margin-bottom: 12px; }
+		#inverse-design .feature-copy > p:not(.research-label) { margin-top: 16px; }
+		:is(#inverse-design, #synthesis-science, #defects-interfaces) .feature-copy > p:not(.research-label),
+		:is(#inverse-design, #synthesis-science, #defects-interfaces) .research-details p { color: #555a63; font-family: inherit; font-size: clamp(0.97rem, 1.18vw, 1.08rem); font-weight: inherit; letter-spacing: inherit; line-height: 1.6; }
+		#inverse-design .research-details { margin-top: 12px; }
+	}
 	@media (prefers-reduced-motion: reduce) {
-		.research-details summary, .representative-publications cite a { transition: none; }
+		.research-details summary { transition: none; }
 	}
 
 	@media (max-width: 800px) {
@@ -160,7 +154,5 @@ const base = import.meta.env.BASE_URL;
 		.synthesis-image img { object-fit: contain; transform: none; }
 		.feature-copy h2 { font-size: clamp(2rem, 9vw, 2.65rem); line-height: 1.12; }
 		.feature-copy p { margin-top: 20px; font-size: 1rem; line-height: 1.68; }
-		.representative-publications { margin-top: 30px; padding-top: 20px; }
-		.representative-publications li { font-size: 0.85rem; }
 	}
 </style>

@@ -19,8 +19,6 @@ const principalInvestigator = {
 };
 
 const awards = [
-	{ year: '2025', title: 'GERA Travel Award, APS' },
-	{ year: '2022', title: 'ICAM travel fellowship' },
 	{
 		year: '2020',
 		title: 'Best Oral Presentation Award at 6th Annual SCI Summer Research Colloquium, Rice University',
@@ -40,11 +38,12 @@ const awards = [
 	<Header />
 	<main>
 		<PageIntro label="People" title="Meet the Group">
-			<p>The Gupta Research Group is building an interdisciplinary team to investigate fundamental materials challenges in emerging quantum and electronic technologies. Meet the faces that is transforming the science.</p>
+			<p>The Gupta Research Group is building an interdisciplinary team to investigate fundamental materials challenges in emerging quantum and electronic technologies.</p>
 		</PageIntro>
 
-		<section class="profile-section page-inner" aria-labelledby="pi-name">
-			<div class="profile-left">
+		<section class="profile-area page-inner" aria-labelledby="pi-section-heading">
+			<h2 id="pi-section-heading" class="section-label">Principal Investigator</h2>
+			<div class="profile-section" aria-labelledby="pi-name">
 				<figure class="profile-portrait">
 					<img
 						src={principalInvestigator.image}
@@ -54,8 +53,46 @@ const awards = [
 					/>
 				</figure>
 
+				<section class="bio" aria-labelledby="bio-heading">
+					<h3 id="bio-heading" class="section-label">Bio</h3>
+					<div class="bio-copy">
+						<p>Dr. Sunny Gupta joined UCF as an Assistant Professor in Fall 2026. He earned his B.S. and M.S. in Physics, with a minor in Materials, from the Indian Institute of Science, Bangalore, and a Ph.D. in Materials Science and Nanoengineering from Rice University. He conducted postdoctoral research at the University of California, Berkeley and Lawrence Berkeley National Laboratory, and later served as a Research Scientist at Rice University.</p>
+						<p>Outside research, he enjoys baking, cricket, tennis, and his long-standing pursuit of mastering the harmonica.</p>
+					</div>
+				</section>
+
+				<div class="profile-identity">
+				<h2 id="pi-name">{principalInvestigator.name}</h2>
+				<p class="profile-title">{principalInvestigator.title}</p>
+
+				<div class="contact-details">
+					<div class="affiliations">
+						{principalInvestigator.affiliations.map((affiliation) => <p>{affiliation}</p>)}
+					</div>
+					<div class="email">
+						<a class="email-link" href={`mailto:${principalInvestigator.email}`}>{principalInvestigator.email}</a>
+					</div>
+				</div>
+
+				<div class="profile-links" aria-label="External profiles">
+					<a href="https://scholar.google.com/citations?user=u0ByY3UAAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer">
+						<svg viewBox="0 0 24 24" aria-hidden="true">
+							<path d="M12 3 1.75 9 12 15l8.25-4.83V17h2V9L12 3Z"></path>
+							<path d="M5.5 13.2V17c0 2.2 2.9 4 6.5 4s6.5-1.8 6.5-4v-3.8L12 17l-6.5-3.8Z"></path>
+						</svg>
+						<span>Google Scholar</span><span class="external-arrow" aria-hidden="true">↗</span>
+					</a>
+					<a href="https://www.linkedin.com/in/sunnygupta1993/" target="_blank" rel="noopener noreferrer">
+						<svg viewBox="0 0 24 24" aria-hidden="true">
+							<path d="M5.2 7.9H1.7V19h3.5V7.9ZM3.45 2.5a2.05 2.05 0 1 0 0 4.1 2.05 2.05 0 0 0 0-4.1ZM22.3 12.65c0-3.35-1.8-4.9-4.2-4.9-1.94 0-2.8 1.06-3.28 1.81V7.9h-3.5V19h3.5v-5.5c0-1.45.27-2.86 2.08-2.86 1.78 0 1.8 1.67 1.8 2.96V19h3.6v-6.35Z"></path>
+						</svg>
+						<span>LinkedIn</span><span class="external-arrow" aria-hidden="true">↗</span>
+					</a>
+				</div>
+				</div>
+
 				<section class="awards" aria-labelledby="awards-heading">
-					<h2 id="awards-heading" class="section-label">Honors &amp; Awards</h2>
+					<h2 id="awards-heading" class="section-label">Selected Honors &amp; Awards</h2>
 					<ol class="awards-list">
 						{awards.map((award) => (
 							<li>
@@ -66,48 +103,15 @@ const awards = [
 					</ol>
 				</section>
 			</div>
-
-			<div class="profile-content">
-				<div class="profile-details">
-					<p class="section-label">Principal Investigator</p>
-					<h2 id="pi-name">{principalInvestigator.name}</h2>
-					<p class="profile-title">{principalInvestigator.title}</p>
-
-					<div class="contact-details">
-						<div>
-							<p class="detail-label">Affiliations</p>
-							{principalInvestigator.affiliations.map((affiliation) => <p>{affiliation}</p>)}
-						</div>
-						<div>
-							<p class="detail-label">Email</p>
-							<a class="email-link" href={`mailto:${principalInvestigator.email}`}>{principalInvestigator.email}</a>
-						</div>
-					</div>
-
-					<div class="profile-links" aria-label="External profiles">
-						<a href="https://scholar.google.com/citations?user=u0ByY3UAAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer">
-							<svg viewBox="0 0 24 24" aria-hidden="true">
-								<path d="M12 3 1.75 9 12 15l8.25-4.83V17h2V9L12 3Z"></path>
-								<path d="M5.5 13.2V17c0 2.2 2.9 4 6.5 4s6.5-1.8 6.5-4v-3.8L12 17l-6.5-3.8Z"></path>
-							</svg>
-							<span>Google Scholar</span><span class="external-arrow" aria-hidden="true">↗</span>
-						</a>
-						<a href="https://www.linkedin.com/in/sunnygupta1993/" target="_blank" rel="noopener noreferrer">
-							<svg viewBox="0 0 24 24" aria-hidden="true">
-								<path d="M5.2 7.9H1.7V19h3.5V7.9ZM3.45 2.5a2.05 2.05 0 1 0 0 4.1 2.05 2.05 0 0 0 0-4.1ZM22.3 12.65c0-3.35-1.8-4.9-4.2-4.9-1.94 0-2.8 1.06-3.28 1.81V7.9h-3.5V19h3.5v-5.5c0-1.45.27-2.86 2.08-2.86 1.78 0 1.8 1.67 1.8 2.96V19h3.6v-6.35Z"></path>
-							</svg>
-							<span>LinkedIn</span><span class="external-arrow" aria-hidden="true">↗</span>
-						</a>
-					</div>
-				</div>
-
-				<div class="bio">
-					<p class="section-label">Bio</p>
-					<p>Dr. Sunny Gupta joined UCF as an assistant professor in Fall 2026. He earned his B.S. and M.S. in Physics, with a minor in Materials, from the Indian Institute of Science, Bangalore, and a Ph.D. in Materials Science and Nanoengineering from Rice University. He conducted postdoctoral research at University of California, Berkeley, and Lawrence Berkeley National Lab, and later served as a Research Scientist at Rice University. Outside research, he enjoys experimenting with baking, playing cricket and tennis, and continues to pursue his long-standing ambition of mastering the harmonica.</p>
-				</div>
-			</div>
 		</section>
 
+		<section class="building-group" aria-labelledby="building-group-heading">
+			<div class="building-group-inner page-inner">
+				<h2 id="building-group-heading" class="section-label">Building the Group</h2>
+				<p>The Gupta Research Group is growing. We welcome motivated PhD students, postdoctoral researchers, and undergraduate researchers interested in computational materials science, quantum materials, and materials design.</p>
+				<a href={`${base}/join-us`}>Explore Opportunities <span aria-hidden="true">→</span></a>
+			</div>
+		</section>
 	</main>
 	<Footer />
 </Layout>
@@ -117,47 +121,47 @@ const awards = [
 	.page-inner { width: min(100% - 64px, 1280px); margin-inline: auto; }
 	.section-label { margin: 0; color: #896400; font-size: 0.72rem; font-weight: 750; letter-spacing: 0.15em; text-transform: uppercase; }
 	h2 { font-family: Georgia, 'Times New Roman', serif; font-weight: 400; letter-spacing: -0.04em; }
-	.profile-section { display: grid; grid-template-areas: 'portrait details' 'awards bio'; grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); column-gap: clamp(56px, 7vw, 104px); row-gap: clamp(40px, 4vw, 56px); align-items: start; padding-block: clamp(64px, 7vw, 90px); }
-	.profile-left, .profile-content { display: contents; }
+	.profile-area { padding-top: clamp(48px, 5vw, 68px); }
+	.profile-section { display: grid; grid-template-areas: 'portrait bio' 'identity awards'; grid-template-columns: minmax(340px, 0.85fr) minmax(0, 1.45fr); column-gap: clamp(72px, 6vw, 88px); row-gap: clamp(40px, 4vw, 52px); align-items: start; margin-top: 32px; padding-bottom: clamp(52px, 4.5vw, 60px); }
 	.profile-portrait { grid-area: portrait; margin: 0; }
-	.profile-portrait img { display: block; width: min(78%, 500px); height: auto; aspect-ratio: 1 / 1; border-radius: 50%; object-fit: cover; object-position: 56% center; }
-	.profile-details { grid-area: details; min-width: 0; }
-	.profile-details h2 { margin: 16px 0 0; font-size: clamp(2.75rem, 4.5vw, 4.5rem); line-height: 1.04; }
-	.profile-title { margin: 14px 0 0; color: #343840; font-size: clamp(1.05rem, 1.3vw, 1.2rem); font-weight: 600; }
-	.contact-details { display: grid; grid-template-columns: minmax(0, 3fr) minmax(190px, 2fr); gap: 32px; margin-top: 30px; padding-top: 24px; border-top: 1px solid #dedfe2; color: #555a63; font-size: 0.94rem; line-height: 1.65; }
+	.profile-portrait img { display: block; width: min(100%, 360px); height: auto; aspect-ratio: 1 / 1; border-radius: 50%; object-fit: cover; object-position: 56% center; }
+	.profile-identity { grid-area: identity; min-width: 0; }
+	.profile-identity h2 { margin: 0; font-size: clamp(2.75rem, 4.5vw, 4.5rem); line-height: 1.04; }
+	.profile-title { margin: 9px 0 0; color: #343840; font-size: clamp(1.05rem, 1.3vw, 1.2rem); font-weight: 600; }
+	.contact-details { margin-top: 20px; color: #555a63; font-size: 0.94rem; line-height: 1.65; }
 	.contact-details p { margin: 0; }
-	.contact-details .detail-label { margin-bottom: 7px; color: #292c32; font-size: 0.68rem; font-weight: 750; letter-spacing: 0.12em; text-transform: uppercase; }
+	.contact-details .email { margin-top: 18px; }
 	.email-link { color: #343840; text-decoration-color: #c99700; text-decoration-thickness: 1px; text-underline-offset: 0.22em; }
 	.email-link:hover, .email-link:focus-visible { color: #896400; }
-	.profile-links { display: flex; flex-wrap: wrap; gap: 14px 30px; margin-top: 25px; }
+	.profile-links { display: flex; flex-wrap: wrap; gap: 14px 30px; margin-top: 18px; }
 	.profile-links a { display: inline-flex; min-height: 36px; gap: 8px; align-items: center; padding-bottom: 4px; border-bottom: 1px solid #c99700; color: #343840; font-size: 0.84rem; font-weight: 620; text-decoration: none; }
 	.profile-links a:hover, .profile-links a:focus-visible { color: #896400; }
 	.profile-links svg { width: 18px; height: 18px; fill: currentColor; }
 	.external-arrow { color: #896400; font-size: 1rem; line-height: 1; }
-	.bio { grid-area: bio; margin: 0; }
-	.bio > p:last-child { max-width: 760px; margin: 16px 0 0; color: #4f535b; font-size: 1rem; line-height: 1.75; text-wrap: pretty; }
-	.awards { grid-area: awards; margin: 0; }
-	.awards-list { margin: 18px 0 0; padding: 0; border-top: 1px solid #dedfe2; list-style: none; }
-	.awards-list li { display: grid; grid-template-columns: 88px minmax(0, 1fr); gap: 16px; padding-block: 12px; border-bottom: 1px solid #dedfe2; }
-	.award-year { margin: 1px 0 0; color: #896400; font-size: 0.76rem; font-weight: 720; letter-spacing: 0.02em; }
-	.award-title { margin: 0; color: #343840; font-size: 0.86rem; font-weight: 520; line-height: 1.5; }
+	.bio { grid-area: bio; max-width: 760px; }
+	.bio-copy { margin-top: 16px; color: #4f535b; font-size: 1rem; line-height: 1.75; text-wrap: pretty; }
+	.bio-copy p { margin: 0; }
+	.bio-copy p + p { margin-top: 16px; }
+	.building-group { border-block: 1px solid #e4e3df; background: #fbfaf7; }
+	.building-group-inner { padding-block: clamp(52px, 5vw, 64px); }
+	.building-group p { max-width: 840px; margin: 18px 0 0; color: #4f535b; font-size: clamp(1rem, 1.15vw, 1.12rem); line-height: 1.68; text-wrap: pretty; }
+	.building-group a { display: inline-flex; gap: 8px; align-items: center; margin-top: 24px; padding-bottom: 5px; border-bottom: 1px solid #c99700; color: #343840; font-size: 0.87rem; font-weight: 650; text-decoration: none; }
+	.building-group a:hover, .building-group a:focus-visible { color: #896400; }
+	.awards { grid-area: awards; max-width: 760px; }
+	.awards-list { margin: 22px 0 0; padding: 0; border-top: 1px solid #dedfe2; list-style: none; }
+	.awards-list li { display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: 20px; padding-block: 15px; border-bottom: 1px solid #dedfe2; }
+	.award-year { margin: 1px 0 0; color: #896400; font-size: 0.78rem; font-weight: 720; letter-spacing: 0.02em; }
+	.award-title { margin: 0; color: #343840; font-size: 0.92rem; font-weight: 500; line-height: 1.55; }
 
-	@media (max-width: 760px) {
-		.profile-section { column-gap: 42px; }
-		.contact-details { grid-template-columns: 1fr; gap: 20px; }
-	}
-
-	@media (max-width: 600px) {
+	@media (max-width: 900px) {
 		.page-inner { width: min(100% - 40px, 1280px); }
-		.profile-section { display: flex; flex-direction: column; gap: 40px; padding-block: 48px 56px; }
-		.profile-portrait { order: 1; }
-		.profile-portrait img { width: min(100%, 500px); }
-		.profile-details { order: 2; }
-		.bio { order: 3; }
-		.awards { order: 4; width: 100%; margin-top: 4px; }
-		.profile-details h2 { font-size: clamp(2.6rem, 13vw, 3.5rem); }
+		.profile-area { padding-top: 44px; }
+		.profile-section { grid-template-areas: 'portrait' 'identity' 'bio' 'awards'; grid-template-columns: 1fr; gap: 40px; margin-top: 28px; padding-bottom: 52px; }
+		.profile-portrait img { width: min(82vw, 380px); }
+		.profile-identity h2 { font-size: clamp(2.6rem, 13vw, 3.5rem); }
 		.profile-links { gap: 12px 24px; }
 		.profile-links a { min-height: 44px; }
 		.awards-list li { grid-template-columns: 76px minmax(0, 1fr); gap: 12px; }
+		.building-group-inner { padding-block: 48px 52px; }
 	}
 </style>

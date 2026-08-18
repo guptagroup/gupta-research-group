@@ -39,10 +39,12 @@ const currentPath = normalizePath(Astro.url.pathname);
 
 <style>
 	.site-header {
-		position: relative;
-		z-index: 10;
+		position: sticky;
+		top: 0;
+		z-index: 1000;
 		border-bottom: 1px solid #e6e7e9;
 		background: #fff;
+		box-shadow: 0 2px 12px rgb(0 0 0 / 4%);
 	}
 
 	.header-inner {
@@ -171,6 +173,24 @@ const currentPath = normalizePath(Astro.url.pathname);
 			color: #8a6300;
 			font-weight: 750;
 			letter-spacing: 0.08em;
+		}
+	}
+</style>
+
+<style is:global>
+	#inverse-design,
+	#synthesis-science,
+	#defects-interfaces,
+	.year-group {
+		scroll-margin-top: 96px;
+	}
+
+	@media (max-width: 800px) {
+		#inverse-design,
+		#synthesis-science,
+		#defects-interfaces,
+		.year-group {
+			scroll-margin-top: 86px;
 		}
 	}
 </style>
