@@ -6,15 +6,15 @@ import { getPublicationByDoi } from '../data/publications';
 
 const base = import.meta.env.BASE_URL;
 const selectedPublications = [
-	'10.1016/j.matt.2025.102378',
-	'10.1021/acs.chemrev.4c00628',
-	'10.1038/s41467-023-42538-2',
-	'10.1038/s41467-022-30818-2',
-	'10.1021/jacs.0c12809',
-	'10.1038/s41467-020-16737-0',
-	'10.1021/acs.nanolett.8b04159',
-	'10.1021/acsnano.8b03754',
-].map(getPublicationByDoi);
+	{ doi: '10.1016/j.matt.2025.102378', image: 'matter_2025.jpg' },
+	{ doi: '10.1021/acs.chemrev.4c00628', image: 'chemical_reviews_2025.png' },
+	{ doi: '10.1038/s41467-023-42538-2', image: 'nature_comm_2023.png' },
+	{ doi: '10.1038/s41467-022-30818-2', image: 'nature_comm_2022.png' },
+	{ doi: '10.1021/jacs.0c12809', image: 'JACS_2021.png' },
+	{ doi: '10.1038/s41467-020-16737-0', image: 'nature_comm_2020.png' },
+	{ doi: '10.1021/acs.nanolett.8b04159', image: 'nano_letter_2019.png' },
+	{ doi: '10.1021/acsnano.8b03754', image: 'ACS_Nano_2018.png' },
+].map(({ doi, image }) => ({ publication: getPublicationByDoi(doi), image }));
 ---
 
 <Layout>
@@ -182,21 +182,38 @@ const selectedPublications = [
 
 				<div class="publication-carousel" aria-roledescription="carousel" aria-label="Selected publications">
 				<ol class="publication-list" aria-live="off">
-					{selectedPublications.map((publication, index) => (
+					{selectedPublications.map(({ publication, image }, index) => (
 						<li class:list={['publication', { 'is-active': index === 0 }]} aria-hidden={index === 0 ? 'false' : 'true'} inert={index === 0 ? undefined : true}>
-							<p class="publication-meta">{publication.year} <span aria-hidden="true">/</span> {publication.journal.split(',')[0]}</p>
-							<h3>
-								{publication.articleUrl ? (
-									<a href={publication.articleUrl} target="_blank" rel="noopener noreferrer">{publication.title}</a>
-								) : publication.title}
-							</h3>
-							<p class="publication-authors">
-								{publication.authors.split(/(S Gupta)/g).map((part) => part === 'S Gupta' ? <strong>{part}</strong> : part)}
-							</p>
-							<div class="publication-citation">
-								<p class="publication-journal">{publication.journal}</p>
-								{publication.doi && <div class="altmetric-embed" data-badge-type="donut" data-hide-no-mentions="true" data-doi={publication.doi}></div>}
+							<div class="publication-details">
+								<p class="publication-meta">{publication.year} <span aria-hidden="true">/</span> {publication.journal.split(',')[0]}</p>
+								<h3>
+									{publication.articleUrl ? (
+										<a href={publication.articleUrl} target="_blank" rel="noopener noreferrer">{publication.title}</a>
+									) : publication.title}
+								</h3>
+								<p class="publication-authors">
+									{publication.authors.split(/(S Gupta)/g).map((part) => part === 'S Gupta' ? <strong>{part}</strong> : part)}
+								</p>
+								<div class="publication-citation">
+									<div>
+										<p class="publication-journal">{publication.journal}</p>
+										{publication.notes && <p class="publication-notes">{publication.notes}</p>}
+										{publication.articleUrl && (
+											<a class="publication-link" href={publication.articleUrl} target="_blank" rel="noopener noreferrer">
+												View article <span aria-hidden="true">↗</span>
+											</a>
+										)}
+									</div>
+									{publication.doi && <div class="altmetric-embed" data-badge-type="donut" data-hide-no-mentions="true" data-doi={publication.doi}></div>}
+								</div>
 							</div>
+							<figure class="publication-image-frame">
+								<img
+									src={`${base}/images/publications/${image}`}
+									alt={`Representative figure for “${publication.title}”`}
+									loading="lazy"
+								/>
+							</figure>
 						</li>
 					))}
 				</ol>
@@ -743,7 +760,11 @@ const selectedPublications = [
 	}
 
 	.publication {
+		display: grid;
 		grid-area: 1 / 1;
+		grid-template-columns: minmax(0, 61fr) minmax(0, 39fr);
+		gap: clamp(34px, 4.5vw, 64px);
+		align-items: center;
 		padding-block: clamp(34px, 4vw, 52px);
 		opacity: 0;
 		transform: translateX(8px);
@@ -774,7 +795,6 @@ const selectedPublications = [
 	}
 
 	.publication h3 {
-		max-width: 980px;
 		margin: 0;
 		font-family: Georgia, 'Times New Roman', serif;
 		font-size: clamp(1.55rem, 2.25vw, 2.2rem);
@@ -799,6 +819,10 @@ const selectedPublications = [
 		text-decoration-color: #c99700;
 	}
 
+	.publication-details {
+		position: relative;
+	}
+
 	.publication-authors,
 	.publication-journal {
 		color: #555a63;
@@ -819,18 +843,55 @@ const selectedPublications = [
 		margin: 0;
 	}
 
-	.publication-citation {
-		display: flex;
-		gap: 24px;
+	.publication-notes {
+		margin: 5px 0 0;
+		color: #777167;
+		font-size: 0.82rem;
+		font-style: italic;
+		line-height: 1.5;
+	}
+
+	.publication-link {
+		display: inline-flex;
+		gap: 6px;
 		align-items: center;
-		justify-content: space-between;
+		margin-top: 15px;
+		padding-bottom: 4px;
+		border-bottom: 1px solid #c99700;
+		font-size: 0.82rem;
+		font-weight: 650;
+		text-decoration: none;
+	}
+
+	.publication-citation {
 		margin-top: 3px;
+		padding-right: 78px;
 	}
 
 	.altmetric-embed {
-		flex: 0 0 auto;
+		position: absolute;
+		right: 0;
+		bottom: 0;
 		min-width: 64px;
 		min-height: 64px;
+	}
+
+	.publication-image-frame {
+		box-sizing: border-box;
+		width: 100%;
+		max-height: 340px;
+		aspect-ratio: 4 / 3;
+		margin: 0;
+		padding: clamp(14px, 1.4vw, 18px);
+		background: #fdfcf9;
+	}
+
+	.publication-image-frame img {
+		display: block;
+		width: 100%;
+		height: 100%;
+		object-fit: contain;
+		object-position: center;
 	}
 
 	.carousel-controls {
@@ -995,6 +1056,29 @@ const selectedPublications = [
 		.hero-copy {
 			width: min(90%, 620px);
 		}
+
+		.publication {
+			grid-template-columns: 1fr;
+			gap: 28px;
+			align-items: start;
+		}
+
+		.publication-citation {
+			display: flex;
+			gap: 14px;
+			align-items: flex-start;
+			justify-content: space-between;
+			padding-right: 0;
+		}
+
+		.altmetric-embed {
+			position: static;
+			flex: 0 0 auto;
+		}
+
+		.publication-image-frame {
+			max-height: none;
+		}
 	}
 
 	@media (max-width: 600px) {
@@ -1098,10 +1182,6 @@ const selectedPublications = [
 
 		.publication {
 			padding-block: 32px;
-		}
-
-		.publication-list {
-			min-height: 410px;
 		}
 
 		.publication h3 {
