@@ -28,9 +28,10 @@ const hasAside = Astro.slots.has('aside');
 	.page-intro__inner {
 		display: flex;
 		width: min(100% - 64px, 1280px);
-		min-height: 320px;
+		height: 270px;
 		margin-inline: auto;
-		padding-block: var(--page-header-padding-block);
+		padding-block: 22px;
+		box-sizing: border-box;
 	}
 
 	.page-intro__inner--with-aside {
@@ -66,8 +67,8 @@ const hasAside = Astro.slots.has('aside');
 		max-width: 850px;
 		margin: 22px 0 0;
 		color: #4b4f57;
-		font-size: clamp(1.05rem, 1.35vw, 1.22rem);
-		line-height: 1.65;
+		font-size: clamp(1rem, 1.1vw, 1.12rem);
+		line-height: 1.55;
 		text-wrap: pretty;
 	}
 
@@ -81,6 +82,7 @@ const hasAside = Astro.slots.has('aside');
 			display: grid;
 			grid-template-columns: 1fr;
 			gap: 24px;
+			height: auto;
 			min-height: 0;
 			padding-block: var(--page-header-padding-block-mobile);
 		}
