@@ -1,7 +1,7 @@
 ---
-const base = import.meta.env.BASE_URL;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const navigation = [
-	{ label: 'Home', href: base },
+	{ label: 'Home', href: base || '/' },
 	{ label: 'Research', href: `${base}/research` },
 	{ label: 'People', href: `${base}/people` },
 	{ label: 'Publications', href: `${base}/publications` },

@@ -4,7 +4,7 @@ import Footer from '../components/Footer.astro';
 import Layout from '../layouts/Layout.astro';
 import { getPublicationByDoi } from '../data/publications';
 
-const base = import.meta.env.BASE_URL;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const selectedPublications = [
 	{ doi: '10.1016/j.matt.2025.102378', image: 'matter_2025.jpg' },
 	{ doi: '10.1021/acs.chemrev.4c00628', image: 'chemical_reviews_2025.png' },
